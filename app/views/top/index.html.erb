@@ -1,2 +1,24 @@
-<h1>Top#index</h1>
-<p>Find me in app/views/top/index.html.erb</p>
+<br>
+<div class="container">
+  <div class="row"> 
+    <div class="col">  
+      <h1 class="text-center text-warning">クイズを</h1><br>
+      <h1 class="text-center text-warning">作って解いて</h1><br>
+      <h1 class="text-center text-warning">楽しもう！</h1><br>
+    </div>
+  </div>
+</div><br><br>
+<div class="container">
+  <p class="text-center text-info">このアプリでは、クイズを作成したり、みんなが作成したクイズを解いたりして楽しめます。</p><br>
+  <p class="text-center text-info">自分が作成したクイズを掲示板で宣伝し、みんなにチャレンジしてもらいましょう。</p><br>
+</div><br>
+<div class="container">
+  <div class="row">          
+    <div class="col-6">
+      <%= link_to "会員登録", root_path, class: 'btn btn-success btn-lg float-right' %>
+    </div>
+    <div class="col-6">
+      <%= link_to "ログイン", root_path, class: 'btn btn-success btn-lg' %>
+    </div>  
+  </div>
+</div><br><br>  

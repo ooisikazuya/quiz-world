@@ -1,0 +1,2 @@
+module MyQuizzesHelper
+end

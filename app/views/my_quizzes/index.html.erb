@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 class="bg-warning text-white text-center">クイズを作成・編集する</h1>
+</div><br>
+<div class="container">
+  <div class="row">
+    <div class="col-6"> 
+      <h2 class="text-info">MYクイズリスト</h2>
+    </div>
+    <div class="col-6"> 
+      <%= link_to "クイズ作成", new_my_quiz_path, class: "btn btn-lg btn-warning float-right" %>
+    </div>
+  </div><br><br>
+  <ul>
+    <div class="row">      
+      <div class="col-9">
+        <li class="h3">銀魂声優クイズ</li>
+        <lavel>ジャンル：声優</lavel>       
+      </div>     
+      <div class="col-3">
+        <%= link_to "編集", root_path, class: "btn btn-lg btn-success" %>
+      </div>  
+    </div><br>
+    <div class="row">      
+      <div class="col-9">
+        <li class="h3">呪術廻戦声優クイズ</li>
+        <lavel>ジャンル：声優</lavel>       
+      </div>     
+      <div class="col-3">
+        <%= link_to "編集", root_path, class: "btn btn-lg btn-success" %>
+      </div>  
+    </div>
+  </ul>
+</div><br><br>
