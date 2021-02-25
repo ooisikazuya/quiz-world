@@ -10,24 +10,17 @@
       <%= link_to "クイズ作成", new_my_quiz_path, class: "btn btn-lg btn-warning float-right" %>
     </div>
   </div><br><br>
-  <ul>
-    <div class="row">      
-      <div class="col-9">
-        <li class="h3">銀魂声優クイズ</li>
-        <lavel>ジャンル：声優</lavel>       
-      </div>     
-      <div class="col-3">
-        <%= link_to "編集", root_path, class: "btn btn-lg btn-success" %>
-      </div>  
-    </div><br>
-    <div class="row">      
-      <div class="col-9">
-        <li class="h3">呪術廻戦声優クイズ</li>
-        <lavel>ジャンル：声優</lavel>       
-      </div>     
-      <div class="col-3">
-        <%= link_to "編集", root_path, class: "btn btn-lg btn-success" %>
-      </div>  
-    </div>
-  </ul>
+  <% @quizzes.each do |quiz| %>
+    <ul>
+      <div class="row">      
+        <div class="col-9">
+          <li class="h3"><%= quiz.title %></li>
+          <lavel>ジャンル：<%= quiz.genre %></lavel>       
+        </div>     
+        <div class="col-3">
+          <%= link_to "編集", edit_my_quiz_path(quiz), class: "btn btn-lg btn-success" %>
+        </div>  
+      </div><br>
+    </ul>
+  <% end %>
 </div><br><br>
