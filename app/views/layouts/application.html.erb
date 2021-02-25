@@ -18,25 +18,34 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">         
-          <li class="nav-item">             
-            <%= link_to "HOME", root_path, class: "post nav-item nav-link" %>            
-          </li>                  
-          <li class="nav-item">
-            <%= link_to "クイズを作成・編集する", my_quizzes_path, class: "post nav-item nav-link" %>                         
-          </li>
-          <li class="nav-item">            
-            <%= link_to "クイズに解答する", quizzes_path, class: "post nav-item nav-link" %>            
-          </li>
-          <li class="nav-item">
-            <%= link_to "クイズ掲示板", bulletin_boards_path, class: "post nav-item nav-link" %>             
-          </li>
-          <li class="nav-item">                                                  
-            <%= link_to "会員情報", root_path, class: "nav-item nav-link" %>                    
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログアウト", root_path, class: "post nav-item nav-link" %> 
-          </li>
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>         
+            <li class="nav-item">             
+              <%= link_to "HOME", root_path, class: "post nav-item nav-link" %>            
+            </li>                  
+            <li class="nav-item">
+              <%= link_to "クイズを作成・編集する", my_quizzes_path, class: "post nav-item nav-link" %>                         
+            </li>
+            <li class="nav-item">            
+              <%= link_to "クイズに解答する", quizzes_path, class: "post nav-item nav-link" %>            
+            </li>
+            <li class="nav-item">
+              <%= link_to "クイズ掲示板", bulletin_boards_path, class: "post nav-item nav-link" %>             
+            </li>
+            <li class="nav-item">                                                  
+              <%= link_to "会員情報", user_path(current_user), class: "nav-item nav-link" %>                    
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_user_session_path, class: "post nav-item nav-link" %> 
+            </li>
+          <% else %>
+            <li class="nav-item">                                                  
+              <%= link_to "会員登録", new_user_registration_path, class: "nav-item nav-link" %>                    
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログイン", new_user_session_path, class: "post nav-item nav-link" %> 
+            </li>
+          <% end %>
         </ul>
       </div>
     </nav>
