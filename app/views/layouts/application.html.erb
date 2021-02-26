@@ -36,7 +36,7 @@
               <%= link_to "会員情報", user_path(current_user), class: "nav-item nav-link" %>                    
             </li>
             <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, class: "post nav-item nav-link" %> 
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "post nav-item nav-link" %> 
             </li>
           <% else %>
             <li class="nav-item">                                                  
