@@ -3,13 +3,18 @@
 </div><br>
 <div class="container">
   <div class="row">
-    <div class="col-6"> 
-      <h2 class="text-info">MYクイズリスト</h2>
+    <div class="col-6">
+      <% if @quizzes.present? %>
+        <h2 class="text-info">MYクイズリスト</h2>
+      <% end %>
     </div>
     <div class="col-6"> 
       <%= link_to "クイズ作成", new_my_quiz_path, class: "btn btn-lg btn-warning float-right" %>
     </div>
   </div><br><br>
+  <% unless @quizzes.present? %>
+    <h2 class="text-danger text-center">クイズを作成してください。</h2>
+  <% end %>
   <% @quizzes.each do |quiz| %>
     <ul>
       <div class="row">      

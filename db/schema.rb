@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2021_02_25_120550) do
 
   create_table "quizzes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "title", null: false
-    t.string "genre", null: false
+    t.string "title", default: "", null: false
+    t.string "genre", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["genre"], name: "index_quizzes_on_genre"
