@@ -14,3 +14,13 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery 
+//= require jquery_ujs
+
+document.addEventListener("turbolinks:load", function(){
+  $('.delete_answer').click(function(){
+    var words = this.id.split("_")
+    const deleteAnswerId = "#answer_" + words[2] + "_" + words[3];
+    $(deleteAnswerId).remove();
+  });
+});

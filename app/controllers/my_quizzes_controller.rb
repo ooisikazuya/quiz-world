@@ -21,7 +21,7 @@ class MyQuizzesController < ApplicationController
     @quiz = Quiz.find(params[:id])
     @quiz.update(update_quiz_params)
     (0..200).each do |i|
-      break if params["question_content_#{i}"].nil?
+      break if params["question_content_#{i}"].blank?
       @question = if params["question_id_#{i}"].present?
                     @quiz.questions.find(params["question_id_#{i}"].to_i)
                   else
