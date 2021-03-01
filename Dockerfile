@@ -19,3 +19,9 @@ ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
 # Gemfileのbundle install
 RUN bundle install
 ADD . $APP_ROOT
+
+# locale
+RUN apt-get update
+RUN apt-get install -y locales
+RUN locale-gen ja_JP.UTF-8
+RUN echo "export LANG=ja_JP.UTF-8" >> ~/.bashrc

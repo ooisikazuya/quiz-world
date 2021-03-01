@@ -1,4 +1,11 @@
 <div class="container">
+  <% if flash[:notice] %>
+    <h2 class="flash bg-primary text-white text-center">
+      <%= flash[:notice] %>
+    </h2>
+  <% end %>
+</div>
+<div class="container">
   <h1 class="bg-warning text-white text-center">クイズを作成・編集する</h1>
 </div><br>
 <div class="container">
@@ -25,7 +32,7 @@
         <div class="col-3">
           <%= link_to "編集", edit_my_quiz_path(quiz), class: "btn btn-lg btn-success" %>
         </div>  
-      </div><br>
+      </div>
     </ul>
   <% end %>
 </div><br><br>
