@@ -21,8 +21,12 @@ class MyQuizzesController < ApplicationController
     @quiz = Quiz.find(params[:id])
     @quiz.update(update_quiz_params)
     (0..200).each do |i|
-      break if params["question_id_#{i}"].nil?
-      @question = @quiz.questions.find(params["question_id_#{i}"].to_i)
+      break if params["question_content_#{i}"].nil?
+      @question = if params["question_id_#{i}"].present?
+                    @quiz.questions.find(params["question_id_#{i}"].to_i)
+                  else
+                    @quiz.questions.new
+                  end
       @question.content = params["question_content_#{i}"]
       @question.commentary = params["commentary_#{i}"]
       @question.save
@@ -31,7 +35,6 @@ class MyQuizzesController < ApplicationController
         @question.answers.create(content: params["answer_content_#{i}_#{j}"], judgment: params["judgment_#{i}_#{j}"]) if params["answer_content_#{i}_#{j}"].present?
       end
     end
-    @question = @quiz.questions.create(content: params['question_content'], commentary: params['commentary']) if params['question_content'].present?
 
     flash[:notice] = "クイズ内容を更新しました！"
     redirect_to edit_my_quiz_path(edit)

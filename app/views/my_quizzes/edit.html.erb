@@ -1,3 +1,4 @@
+<% i = 0 %>
 <div class="container">
   <% if flash[:notice] %>
     <h2 class="flash bg-primary text-white text-center">
@@ -27,7 +28,7 @@
   </div><br>
   <div class="container">
     <% if @quiz.questions.present? %>
-      <% @quiz.questions.each_with_index do |question, i| %>
+      <% @quiz.questions.each do |question| %>
         <div class="row">      
           <div class="col-12">
             <div class="card border-info">
@@ -80,6 +81,7 @@
             </div>
           </div>
         </div><br>
+        <% i += 1 %>
       <% end %>
     <% end %>
     <div class="row">      
@@ -96,7 +98,7 @@
             </div>
             <div class="row">
               <div class="col">
-                <%= text_area_tag "question_content", "", class: "form-control border-info", rows: 3, placeholder: "問題文を作成してください。" %>
+                <%= text_area_tag "question_content_#{i}", "", class: "form-control border-info", rows: 3, placeholder: "問題文を作成してください。" %>
               </div>
             </div><br>
             <div class="row">
@@ -106,26 +108,26 @@
             </div>
             <div class="row">
               <div class="col-2">
-                <%= select_tag "judgment_1", options_for_select([['○', true], ['×', false]]), class: "form-control border-info" %>
+                <%= select_tag "judgment_#{i}_1", options_for_select([['○', true], ['×', false]]), class: "form-control border-info" %>
               </div>
               <div class="col-8">      
-                <%= text_area_tag "answer_content_1", "", class: "form-control border-info", rows: 1, placeholder: "選択肢を作成してください。"%> 
+                <%= text_area_tag "answer_content_#{i}_1", "", class: "form-control border-info", rows: 1, placeholder: "選択肢を作成してください。"%> 
               </div>
             </div><br>
             <div class="row">
               <div class="col-2">
-                <%= select_tag "judgment_2", options_for_select([['○', true], ['×', false]]), class: "form-control border-info" %>
+                <%= select_tag "judgment_#{i}_2", options_for_select([['○', true], ['×', false]]), class: "form-control border-info" %>
               </div>
               <div class="col-8">
-                <%= text_area_tag "answer_content_2", "", class: "form-control border-info", rows: 1, placeholder: "選択肢を作成してください。"%>
+                <%= text_area_tag "answer_content_#{i}_2", "", class: "form-control border-info", rows: 1, placeholder: "選択肢を作成してください。"%>
               </div>
             </div><br>
             <div class="row">
               <div class="col-2">
-                <%= select_tag "judgment_3", options_for_select([['○', true], ['×', false]]), class: "form-control border-info" %>
+                <%= select_tag "judgment_#{i}_3", options_for_select([['○', true], ['×', false]]), class: "form-control border-info" %>
               </div>
               <div class="col-8">      
-                <%= text_area_tag "answer_content_3", "", class: "form-control border-info", rows: 1, placeholder: "選択肢を作成してください。"%>
+                <%= text_area_tag "answer_content_#{i}_3", "", class: "form-control border-info", rows: 1, placeholder: "選択肢を作成してください。"%>
               </div>
               <div class="col-2">
                 <a class="btn btn-danger">🗑</a>
@@ -143,7 +145,7 @@
             </div>
             <div class="row">
               <div class="col">
-                <%= text_area_tag "commentary", "", class: "form-control border-info", rows: 3, placeholder: "解説文を作成してください。" %>
+                <%= text_area_tag "commentary_#{i}", "", class: "form-control border-info", rows: 3, placeholder: "解説文を作成してください。" %>
               </div>
             </div><br>
           </div>
