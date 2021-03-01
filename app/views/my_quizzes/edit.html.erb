@@ -1,127 +1,172 @@
 <div class="container">
-  <h1 class="bg-warning text-white text-center">クイズ編集</h1>
-</div><br>
-<div class="container">
-  <h5 class=" text-info">クイズ名</h5>
-  <div class="row">      
-    <div class="col-7">
-      <div class="form-group">
-        <input class="form-control border-info">
-      </div>
-    </div>
-  </div>
+  <% if flash[:notice] %>
+    <h2 class="flash bg-primary text-white text-center">
+      <%= flash[:notice] %>
+    </h2>
+  <% end %>
 </div>
 <div class="container">
-  <h5 class=" text-info">ジャンル</h5>
-  <div class="row">      
-    <div class="col-5">      
-      <div class="form-group">
-        <input class="form-control border-info">
+  <h1 class="bg-warning text-white text-center">クイズ編集</h1>
+</div><br>
+<%= form_tag(my_quiz_path(@quiz), method: :patch) do %>
+  <div class="container">
+    <h5 class=" text-info">クイズ名</h5>
+    <div class="row">      
+      <div class="col-7">
+        <%= text_field_tag "title", @quiz.title, class: "form-control border-info", required: true %>
       </div>
     </div>
-  </div>
-</div><br>
-<div class="container">
-  <div class="row">      
-    <div class="col-12">
-      <div class="card border-info">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-3">
-              <h3 class="text-info">問題文</h3>
-            </div>
-            <div class="col-9">
-              <a class="btn btn-danger float-right text-white">問題の削除</a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <textarea class="form-control border-info" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-          </div><br>
-          <div class="row">
-            <div class="col">
-              <h3 class="text-info">選択肢</h3>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-2">
-              <select class="form-control border-info" id="exampleFormControlSelect1">
-                <option>○</option>
-                <option>×</option>
-              </select>
-            </div>
-            <div class="col-8">
-              <div class="form-group">
-                <textarea class="form-control border-info" id="exampleFormControlTextarea1" rows="1"></textarea>
-              </div>  
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-2">
-              <select class="form-control border-info" id="exampleFormControlSelect1">
-                <option>○</option>
-                <option>×</option>
-              </select>
-            </div>
-            <div class="col-8">
-              <div class="form-group">
-                <textarea class="form-control border-info" id="exampleFormControlTextarea1" rows="1"></textarea>
-              </div>  
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-2">
-              <select class="form-control border-info" id="exampleFormControlSelect1">
-                <option>○</option>
-                <option>×</option>
-              </select>
-            </div>
-            <div class="col-8">
-              <div class="form-group">
-                <textarea class="form-control border-info" id="exampleFormControlTextarea1" rows="1"></textarea>
-              </div>  
-            </div>
-            <div class="col-2">
-              <a class="btn btn-danger">🗑</a>
+  </div><br>
+  <div class="container">
+    <h5 class=" text-info">ジャンル</h5>
+    <div class="row">      
+      <div class="col-5">      
+        <%= text_field_tag "genre", @quiz.genre, class: "form-control border-info", required: true %>
+      </div>
+    </div>
+  </div><br>
+  <div class="container">
+    <% if @quiz.questions.present? %>
+      <% @quiz.questions.each_with_index do |question, i| %>
+        <div class="row">      
+          <div class="col-12">
+            <div class="card border-info">
+              <div class="card-body">
+                <%= hidden_field_tag "question_id_#{i}", question.id %>
+                <div class="row">
+                  <div class="col-3">
+                    <h3 class="text-info">問題文</h3>
+                  </div>
+                  <div class="col-9">
+                    <a class="btn btn-danger float-right text-white">問題の削除</a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <%= text_area_tag "question_content_#{i}", "#{question.content}", class: "form-control border-info", rows: 3, placeholder: "問題文を作成してください。" %>
+                  </div>
+                </div><br>
+                <div class="row">
+                  <div class="col">
+                    <h3 class="text-info">選択肢</h3>
+                  </div>
+                </div>
+                <% question.answers.each_with_index do |answer, j| %>
+                  <div class="row">
+                    <div class="col-2">
+                      <%= select_tag "judgment_#{i}_#{j}", options_for_select([['○', true], ['×', false]], selected: "#{answer.judgment}"), class: "form-control border-info" %>
+                    </div>
+                    <div class="col-8">      
+                      <%= text_area_tag "answer_content_#{i}_#{j}", "#{answer.content}", class: "form-control border-info", rows: 1, placeholder: "選択肢を作成してください。"%> 
+                    </div>
+                  </div><br>
+                <% end %>
+                <div class="row">
+                  <div class="col-11">
+                    <a class="btn btn-success float-right text-white">選択肢の追加</a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3">
+                    <h3 class="text-info">解説</h3>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <%= text_area_tag "commentary_#{i}", "#{question.commentary}", class: "form-control border-info", rows: 3, placeholder: "解説文を作成してください。" %>
+                  </div>
+                </div><br>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-11">
-              <a class="btn btn-success float-right text-white">選択肢の追加</a>
+        </div><br>
+      <% end %>
+    <% end %>
+    <div class="row">      
+      <div class="col-12">
+        <div class="card border-info">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-3">
+                <h3 class="text-info">問題文</h3>
+              </div>
+              <div class="col-9">
+                <a class="btn btn-danger float-right text-white">問題の削除</a>
+              </div>
             </div>
+            <div class="row">
+              <div class="col">
+                <%= text_area_tag "question_content", "", class: "form-control border-info", rows: 3, placeholder: "問題文を作成してください。" %>
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="col">
+                <h3 class="text-info">選択肢</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                <%= select_tag "judgment_1", options_for_select([['○', true], ['×', false]]), class: "form-control border-info" %>
+              </div>
+              <div class="col-8">      
+                <%= text_area_tag "answer_content_1", "", class: "form-control border-info", rows: 1, placeholder: "選択肢を作成してください。"%> 
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="col-2">
+                <%= select_tag "judgment_2", options_for_select([['○', true], ['×', false]]), class: "form-control border-info" %>
+              </div>
+              <div class="col-8">
+                <%= text_area_tag "answer_content_2", "", class: "form-control border-info", rows: 1, placeholder: "選択肢を作成してください。"%>
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="col-2">
+                <%= select_tag "judgment_3", options_for_select([['○', true], ['×', false]]), class: "form-control border-info" %>
+              </div>
+              <div class="col-8">      
+                <%= text_area_tag "answer_content_3", "", class: "form-control border-info", rows: 1, placeholder: "選択肢を作成してください。"%>
+              </div>
+              <div class="col-2">
+                <a class="btn btn-danger">🗑</a>
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="col-11">
+                <a class="btn btn-success float-right text-white">選択肢の追加</a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <h3 class="text-info">解説</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <%= text_area_tag "commentary", "", class: "form-control border-info", rows: 3, placeholder: "解説文を作成してください。" %>
+              </div>
+            </div><br>
           </div>
-          <div class="row">
-            <div class="col-3">
-              <h3 class="text-info">解説</h3>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <textarea class="form-control border-info" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-          </div><br>
         </div>
       </div>
     </div>
-  </div>
-</div><br>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="actions">
-        <a class="btn btn-success float-right text-white">問題の追加</a>
+  </div><br>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="actions">
+          <a class="btn btn-success float-right text-white">問題の追加</a>
+        </div>
       </div>
     </div>
-  </div>
-</div><br><br>
-<div class="container">
-  <div class="row">
-    <div class="col-7">
-      <div class="actions">
-        <a class="btn btn-primary btn-lg float-right text-white">保存する</a>
+  </div><br><br>
+  <div class="container">
+    <div class="row">
+      <div class="col-7">
+        <div class="actions">
+          <%= submit_tag "保存する", class: "btn btn-primary btn-lg float-right text-white" %>
+        </div>
       </div>
     </div>
-  </div>
-</div><br><br> 
-
+  </div><br><br> 
+<% end %>
