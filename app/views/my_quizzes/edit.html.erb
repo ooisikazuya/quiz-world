@@ -52,24 +52,26 @@
                     <h3 class="text-info">選択肢</h3>
                   </div>
                 </div>
-                <% question.answers.each_with_index do |answer, j| %>
-                  <div id="<%= "answer_#{i}_#{j}" %>" class="row">
-                    <div class="col-2">
-                      <%= select_tag "judgment_#{i}_#{j}", options_for_select([['○', true], ['×', false]], selected: "#{answer.judgment}"), class: "form-control border-info" %>
-                    </div>
-                    <div class="col-8">      
-                      <%= text_area_tag "answer_content_#{i}_#{j}", "#{answer.content}", class: "form-control border-info", rows: 1, placeholder: "選択肢を作成してください。"%>
-                    </div>
-                    <% if j >= 2 %>
+                <div id="answer_<%= i %>">
+                  <% question.answers.each_with_index do |answer, j| %>
+                    <div id="<%= "answer_#{i}_#{j}" %>" class="row">
                       <div class="col-2">
-                        <a id="<%= "delete_answer_#{i}_#{j}" %>" class="btn btn-danger delete_answer">🗑</a>
+                        <%= select_tag "judgment_#{i}_#{j}", options_for_select([['○', true], ['×', false]], selected: "#{answer.judgment}"), class: "form-control border-info" %>
                       </div>
-                    <% end %>
-                  </div><br>
-                <% end %>
+                      <div class="col-8">      
+                        <%= text_area_tag "answer_content_#{i}_#{j}", "#{answer.content}", class: "form-control border-info", rows: 1, placeholder: "選択肢を作成してください。"%>
+                      </div>
+                      <% if j >= 2 %>
+                        <div class="col-2">
+                          <a id="<%= "delete_answer_#{i}_#{j}" %>" class="btn btn-danger delete_answer">🗑</a>
+                        </div>
+                      <% end %>
+                    </div><br>
+                  <% end %>
+                </div>
                 <div class="row">
                   <div class="col-11">
-                    <a class="btn btn-success float-right text-white">選択肢の追加</a>
+                    <a id="add_answer_<%= i %>" class="btn btn-success float-right text-white add_answer">選択肢の追加</a>
                   </div>
                 </div>
                 <div class="row">
