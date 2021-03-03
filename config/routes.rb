@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resource :user, only: [:show, :edit, :update]
   resources :bulletin_boards, only: [:index, :new]
   resources :my_quizzes, only: [:index, :new, :create, :edit, :update]
-  resources :quizzes, only: [:index, :show]
+  resources :quizzes, only: [:index, :show] do
+    resources :questions, only: :destroy
+  end
   root 'top#index'
 end
