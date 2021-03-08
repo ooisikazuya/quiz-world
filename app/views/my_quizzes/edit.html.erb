@@ -45,7 +45,7 @@
                       <h3 class="text-info">問題文</h3>
                     </div>
                     <div class="col-9">
-                      <%= link_to "問題の削除", quiz_question_path(@quiz, question), method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: "btn btn-danger float-right text-white delete_question" %>
+                      <a id="delete_question_<%= i %>" class="btn btn-danger float-right text-white delete_question">問題の削除</a>
                     </div>
                   </div>
                   <div class="row">

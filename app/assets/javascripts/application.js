@@ -63,9 +63,10 @@ document.addEventListener("turbolinks:load", function() {
   $('body').on("click", ".delete_question", function() {
     var words = this.id.split("_");
     const deleteQuestionId = "#question_" + words[2];
-    if (words[2] == 0) {
+    const index = $('#quiz_container').find('.card-body').length;
+    if (index == 1) {
       alert('削除できません。');
-    } else if (words[2] > 0) {
+    } else if (index > 1) {
       if (!confirm('削除してもよろしいですか？')) {
         return false;
       } else {
@@ -113,8 +114,8 @@ document.addEventListener("turbolinks:load", function() {
           $(this).attr('name','commentary_' + (f));
           $(this).attr('id','commentary_' + (f));
         });
-      } 
-    }
+      }
+    } 
   });
 
   $('body').on("click", ".add_question", function() {
