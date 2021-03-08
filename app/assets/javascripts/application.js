@@ -63,10 +63,9 @@ document.addEventListener("turbolinks:load", function() {
   $('body').on("click", ".delete_question", function() {
     var words = this.id.split("_");
     const deleteQuestionId = "#question_" + words[2];
-    const index = $('#quiz_container').find('.card-body').length;
-    if (index == 1) {
+    if (words[2] == 0) {
       alert('削除できません。');
-    } else if (index > 1) {
+    } else if (words[2] > 0) {
       if (!confirm('削除してもよろしいですか？')) {
         return false;
       } else {
