@@ -127,4 +127,23 @@ document.addEventListener("turbolinks:load", function() {
       alert('問題はこれ以上作成できません。');
     }
   });
+
+  $('.judgment').change(function() {
+    if (this.value == 'false') {
+      return;
+    }
+    var i = 0;
+    var words = this.id.split("_");
+    const changed_index = parseInt(words[2]);
+    while (true) {
+      var elem = $('#' + words[0] + '_' + words[1] + '_' + i);
+      if (elem.length == 0) {
+        break;
+      }
+      if (i != changed_index) {
+        elem.val('false');
+      }
+      i++;
+    }
+  })
 });
