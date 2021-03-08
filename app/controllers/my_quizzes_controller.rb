@@ -30,7 +30,7 @@ class MyQuizzesController < ApplicationController
       @question.content = params["question_content_#{i}"]
       @question.commentary = params["commentary_#{i}"]
       @question.save
-      @question.answers.each(&:destroy!)
+      @question.answers.delete_all
       5.times do |j|
         @question.answers.create(content: params["answer_content_#{i}_#{j}"], judgment: params["judgment_#{i}_#{j}"]) if params["answer_content_#{i}_#{j}"].present?
       end
