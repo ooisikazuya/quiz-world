@@ -20,7 +20,7 @@ class MyQuizzesController < ApplicationController
   def update
     @quiz = Quiz.find(params[:id])
     @quiz.update(update_quiz_params)
-    (0..200).each do |i|
+    (0..199).each do |i|
       break if params["question_content_#{i}"].blank?
       @question = if params["question_id_#{i}"].present?
                     @quiz.questions.find(params["question_id_#{i}"].to_i)
@@ -37,7 +37,7 @@ class MyQuizzesController < ApplicationController
     end
 
     flash[:notice] = "クイズ内容を更新しました！"
-    redirect_to edit_my_quiz_path(edit)
+    redirect_to edit_my_quiz_path(@quiz)
   end
 
   private
