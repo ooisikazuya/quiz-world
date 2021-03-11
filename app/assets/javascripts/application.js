@@ -156,7 +156,6 @@ document.addEventListener("turbolinks:load", function() {
                         return $(this).val();
                       }).get();
       var count = $.inArray("true", judgment);
-      console.log(count);
       $('body').on("submit", "form", function() { 
         if (count == - 1) {
           alert((a + 1) + '番目の問題に正解の選択肢がありません。');
