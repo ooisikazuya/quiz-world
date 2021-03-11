@@ -30,21 +30,21 @@ document.addEventListener("turbolinks:load", function() {
       const deleteAnswers = $(answers).find('.delete_answer')
       $(answers).each(function(z) {
         $(this).attr('id', a_words[0] + "_" + a_words[1] + "_" + (z));
-      });
+      })
       $(judgments).each(function(y) {
         var j_words = this.id.split("_");
         $(this).attr('name', j_words[0] + "_" + a_words[1] + "_" + (y));
         $(this).attr('id', j_words[0] + "_" + a_words[1] + "_" + (y));
-      });
+      })
       $(contents).each(function(x) {
         var c_words = this.id.split("_");
         $(this).attr('name', c_words[0] + "_" + c_words[1] + "_" + a_words[1] + "_" + (x));
         $(this).attr('id', c_words[0] + "_" + c_words[1] + "_" + a_words[1] + "_" + (x));
-      });
+      })
       $(deleteAnswers).each(function(w) {
         $(this).attr('id', words[0] + "_" + words[1] + "_" + a_words[1] + "_" + (w + 2));
-      });
-    });
+      })
+    })
   });
 
   $('body').on("click", ".add_answer", function(e) {
@@ -72,14 +72,14 @@ document.addEventListener("turbolinks:load", function() {
         $(deleteQuestionId).remove();
         $('.question').each(function(a) {
           $(this).attr('id','question_' + (a));
-        });
+        })
         $('.delete_question').each(function(b) {
           $(this).attr('id','delete_question_' + (b));
-        });
+        })
         $('.q_content').each(function(c) {
           $(this).attr('name','question_content_' + (c));
           $(this).attr('id','question_content_' + (c));
-        });
+        })
         $('.answers').each(function(d) {
           $(this).attr('id','answer_' + (d));
           var a_words = this.id.split("_");
@@ -90,29 +90,29 @@ document.addEventListener("turbolinks:load", function() {
           $(answers).each(function() {
             var answerWords = this.id.split("_");
             $(this).attr('id', a_words[0] + "_" + a_words[1] + "_" + answerWords[2]);
-          });
+          })
           $(judgments).each(function() {
             var j_words = this.id.split("_");
             $(this).attr('name', j_words[0] + "_" + a_words[1] + "_" + j_words[2]);
             $(this).attr('id', j_words[0] + "_" + a_words[1] + "_" + j_words[2]);
-          });
+          })
           $(contents).each(function() {
             var c_words = this.id.split("_");
             $(this).attr('name', c_words[0] + "_" + c_words[1] + "_" + a_words[1] + "_" + c_words[3]);
             $(this).attr('id', c_words[0] + "_" + c_words[1] + "_" + a_words[1] + "_" + c_words[3]);
-          });
+          })
           $(deleteAnswers).each(function() {
             var d_words = this.id.split("_");
             $(this).attr('id', d_words[0] + "_" + d_words[1] + "_" + a_words[1] + "_" + d_words[3]);
-          });
-        });
+          })
+        })
         $('.add_answer').each(function(e) {
           $(this).attr('id','add_answer_' + (e));
-        });
+        })
         $('.commentary').each(function(f) {
           $(this).attr('name','commentary_' + (f));
           $(this).attr('id','commentary_' + (f));
-        });
+        })
       }
     } 
   });
@@ -128,7 +128,7 @@ document.addEventListener("turbolinks:load", function() {
     }
   });
 
-  $('.judgment').change(function() {
+  $('body').on("change", ".judgment", function() {
     if (this.value == 'false') {
       return;
     }
@@ -145,5 +145,30 @@ document.addEventListener("turbolinks:load", function() {
       }
       i++;
     }
-  })
+  });
+
+  
+  $('body').on("click", ".save", function() {
+    $('.answers').each(function(a) {
+      const answers = $(this).find('.answer');
+      const judgments = $(answers).find('.judgment');
+      const judgment = $(judgments).find($('.judgment option:selected')).map(function() {
+                        return $(this).val();
+                      }).get();
+      var count = $.inArray("true", judgment);
+      console.log(count);
+      $('body').on("submit", "form", function() { 
+        if (count == - 1) {
+          alert((a + 1) + '番目の問題に正解の選択肢がありません。');
+          $('body').off('submit', 'form');
+          return false;
+        } else if (count > - 1) {
+          return true;
+        }
+      });
+      if (count == - 1) {
+        return false;
+      }
+    })
+  });
 });
