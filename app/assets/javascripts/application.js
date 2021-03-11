@@ -147,7 +147,6 @@ document.addEventListener("turbolinks:load", function() {
     }
   });
 
-  
   $('body').on("click", ".save", function() {
     $('.answers').each(function(a) {
       const answers = $(this).find('.answer');
