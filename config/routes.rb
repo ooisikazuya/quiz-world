@@ -17,8 +17,9 @@ Rails.application.routes.draw do
       patch 'deleted'
     end
   end
-  resources :quizzes, only: [:index, :show] do
+  resources :quizzes, only: [:show] do
     resources :questions, only: :destroy
+    get 'search', on: :collection
   end
   root 'top#index'
 end

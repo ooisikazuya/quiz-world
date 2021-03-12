@@ -50,7 +50,7 @@
           <h5 class="card-header bg-primary text-white">クイズに解答する</h5>
           <div class="card-body">
             <h5 class="card-text">みんなが作ったクイズにチャレンジしてみましょう。楽しかったクイズには”いいね！”をしましょう。</h5><br>
-            <%= link_to "解答する", quizzes_path, class: 'btn btn-success text-white float-right' %>
+            <%= link_to "解答する", search_quizzes_path, class: 'btn btn-success text-white float-right' %>
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@
         <div class="card">
           <h5 class="card-header bg-warning text-white">クイズ掲示板</h5>
           <div class="card-body">
-              <h5 class="text-center">色んなクイズをした感想を書いたり、自分が作ったクイズを宣伝する掲示板です。</h5><br> 
+              <h5 class="card-text">色んなクイズをした感想を書いたり、自分が作ったクイズを宣伝する掲示板です。</h5><br> 
             <%= link_to "掲示板を見る", bulletin_boards_path, class: 'btn btn-warning float-right' %>
           </div>
         </div>
