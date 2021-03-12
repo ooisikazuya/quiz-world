@@ -152,8 +152,8 @@ document.addEventListener("turbolinks:load", function() {
       const answers = $(this).find('.answer');
       const judgments = $(answers).find('.judgment');
       const judgment = $(judgments).find($('.judgment option:selected')).map(function() {
-                        return $(this).val();
-                      }).get();
+                         return $(this).val();
+                       }).get();
       var count = $.inArray("true", judgment);
       $('body').on("submit", "form", function() { 
         if (count == - 1) {
