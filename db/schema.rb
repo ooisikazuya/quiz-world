@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_072416) do
+ActiveRecord::Schema.define(version: 2021_03_08_123944) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "question_id", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_072416) do
     t.string "genre", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0, null: false
     t.index ["genre"], name: "index_quizzes_on_genre"
     t.index ["user_id"], name: "index_quizzes_on_user_id"
   end

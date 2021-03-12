@@ -40,6 +40,20 @@ class MyQuizzesController < ApplicationController
     redirect_to edit_my_quiz_path(@quiz)
   end
 
+  def released
+    quiz = Quiz.find(params[:id])
+    quiz.released!
+    flash[:notice] = "クイズを公開しました！"
+    redirect_to my_quizzes_path
+  end
+
+  def deleted
+    quiz = Quiz.find(params[:id])
+    quiz.deleted!
+    flash[:notice] = "クイズを公開場所から削除しました！"
+    redirect_to my_quizzes_path
+  end
+
   private
 
   def create_quiz_params
