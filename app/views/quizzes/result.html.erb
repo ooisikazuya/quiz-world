@@ -1,0 +1,26 @@
+<div class="container bg-warning">
+  <h1 class="text-white text-center">結果</h1>
+</div><br>
+<div class="container">
+  <div class="card border-info">
+    <div class="card-body">
+      <h2 class="text-info text-center"><%= @quiz.title %></h2>
+      <h5 class="text-info text-center">ジャンル：<%= @quiz.genre %></h5><br><br>
+      <h1 class="text-info text-center"><%= @questions.count %>問中？問正解！</h1><br>
+    </div>
+  </div><br><br>
+  <h3 class="text-warning text-center">このクイズが楽しかったと思った人は”いいね！”ボタンを押してね！</h3><br>
+  <div class="row">
+    <div class="col-7">
+      <a class="btn btn-lg btn-info text-white float-right">いいね！</a>
+    </div>
+  </div><br><br><br>
+  <div class="row">
+    <div class="col-6">
+      <%= link_to "もう１度解く", quiz_path(@quiz), class: "btn btn-success text-white float-right" %>
+    </div>
+    <div class="col-6">
+      <%= link_to "クイズ検索へ", search_quizzes_path, class: "btn btn-success text-white" %>
+    </div>
+  </div>
+</div><br><br><br>

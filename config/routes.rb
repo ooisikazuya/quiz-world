@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :quizzes, only: [:show] do
     resources :questions, only: :destroy
     get 'search', on: :collection
+    get 'result', on: :member
   end
   root 'top#index'
 end

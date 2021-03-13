@@ -1,37 +1,31 @@
 <div class="container bg-warning">
-  <h1 class="text-white text-center">銀魂声優クイズ</h1>
-  <h4 class="text-white text-center">ジャンル：声優</h4>
+  <h1 class="text-white text-center"><%= @quiz.title %></h1>
+  <h4 class="text-white text-center">ジャンル：<%= @quiz.genre %></h4>
 </div><br>
 <div class="container">
   <div class="card border-info">
     <div class="card-body">
-      <h3 class="text-info">第１問</h3>
-      <div class="card border-info">
-        <div class="card-body">
-          <h6>坂田銀時役の声優は誰でしょう？</h6>
+      <% @questions.each do |question| %>
+        <h3 class="text-info">第<%= @questions.current_page %>問</h3>
+        <div class="card border-info">
+          <div class="card-body">
+            <h6><%= question.content %></h6>
+          </div>
+        </div><br>
+        <% question.answers.each do |answer| %>
+          <div class="row">
+            <div class="col text-center"> 
+              <a class="btn btn-lg btn-outline-info btn-block"><%= answer.content %></a>
+            </div>
+          </div><br>   
+        <% end %> 
+        <h3 class="text-info">解説</h3>
+        <div class="card border-info">
+          <div class="card-body">
+            <h6><%= question.commentary %></h6>
+          </div>
         </div>
-      </div><br>
-      <div class="row">
-        <div class="col"> 
-          <a class="btn btn-lg btn-outline-info btn-block">杉田智和</a>
-        </div>
-      </div><br>   
-      <div class="row">
-        <div class="col text-center">
-          <a class="btn btn-lg btn-outline-info btn-block">石田彰</a>
-        </div>
-      </div><br>
-      <div class="row">
-        <div class="col text-center">
-          <a class="btn btn-lg btn-outline-info btn-block">中井和哉</a>                             
-        </div>
-      </div><br>  
-      <h3 class="text-info">解説</h3>
-      <div class="card border-info">
-        <div class="card-body">
-          <h6>坂田銀時役の声優は杉田智和さんです。</h6>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div><br>
@@ -39,34 +33,11 @@
   <div class="row">
     <div class="col">
       <div class="actions">
-        <a class="btn btn-success float-right text-white">次の問題へ</a>
-      </div>
+        <%= link_to_next_page @questions, "次の問題へ", class: "btn btn-success float-right text-white" %>
+        <% if @questions.last_page? %>
+          <%= link_to "結果画面へ", result_quiz_path(@quiz), class: "btn btn-success float-right text-white" %>
+        <% end %>
+      </div>       
     </div>
   </div>
-</div><br><br><br><br><br><br>
-<div class="container bg-warning">
-  <h1 class="text-white text-center">結果</h1>
-</div><br>
-<div class="container">
-  <div class="card border-info">
-    <div class="card-body">
-      <h2 class="text-info text-center">銀魂声優クイズ</h2>
-      <h5 class="text-info text-center">ジャンル：声優</h5><br><br>
-      <h1 class="text-info text-center">10問中10問正解！</h1><br>
-    </div>
-  </div><br><br>
-  <h3 class="text-warning text-center">このクイズが楽しかったと思った人は”いいね！”ボタンを押してね！</h3><br>
-  <div class="row">
-    <div class="col-7">
-      <a class="btn btn-lg btn-info text-white float-right">いいね！</a>
-    </div>
-  </div><br><br><br>
-  <div class="row">
-    <div class="col-6">
-      <a class="btn btn-success text-white float-right">もう１度解く</a>
-    </div>
-    <div class="col-6">
-      <a class="btn btn-success text-white">クイズ検索へ</a>
-    </div>
-  </div>
-</div><br><br><br><br>
+</div><br><br>
