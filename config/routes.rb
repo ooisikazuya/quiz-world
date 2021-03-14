@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
   
   resource :user, only: [:show, :edit, :update]
-  resources :bulletin_boards, only: [:index, :new]
+  resources :bulletin_boards, only: [:index, :new, :create] do
+    get 'search', on: :collection
+  end
   resources :my_quizzes, only: [:index, :new, :create, :edit, :update] do
     member do
       patch 'released'

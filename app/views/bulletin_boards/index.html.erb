@@ -1,23 +1,8 @@
 <div class="container">
-  <h1 class="bg-success text-white text-center">クイズ掲示板</h1>
-</div><br>
-<div class="container">
-  <%= link_to "掲示板に記入", new_bulletin_board_path, class: "btn btn-primary text-white float-right" %>
-</div><br><br>
-<div class="container">
-  <div class="card border-primary">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h5>新しいクイズを作りました！チャレンジしてみてください！</h5>
-        </div>
-        <div class="col-12">
-          <h5 class="float-right">名前（アイコン）</h5>
-        </div>
-        <div class="col-12">
-          <h6 class="float-right">2021年○月○日</h6>
-        </div>    
-      </div>
-    </div>
-  </div>
-</div><br><br>
+  <% if flash[:notice] %>
+    <h2 class="flash bg-primary text-white text-center">
+      <%= flash[:notice] %>
+    </h2>
+  <% end %>
+</div>
+<%= render file: "bulletin_boards/search.html.erb" %>

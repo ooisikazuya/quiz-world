@@ -1,18 +1,27 @@
+<% if @bulletin_board.errors.any? %>
+  <div class="container">  
+    <div class="alert alert-danger" role="alert">
+      内容を記載してください。
+    </div>
+  </div>  
+<% end %>
 <div class="container">
   <h1 class="bg-success text-white text-center">掲示板に記入する</h1>
 </div><br>
 <div class="container">
-  <h2>名前（アイコン）</h2>
+  <h2><%= current_user.nickname %></h2>
 </div><br>
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <textarea class="form-control border-primary", id="exampleFormControlTextarea1", rows=10></textarea>
+  <%= form_for(@bulletin_board)  do |f| %>
+    <div class="row">
+      <div class="col">
+        <%= f.text_area :message, class: "form-control border-primary", rows: 10 %>
+      </div>
+    </div><br><br>
+    <div class="row">
+      <div class="col-7">
+        <%= f.submit "掲示板に載せる", class: "btn btn-warning btn-lg float-right" %>
+      </div>
     </div>
-  </div><br><br>
-  <div class="row">
-    <div class="col-7">
-      <a class="btn btn-warning btn-lg float-right">掲示板に載せる</a>
-    </div>
-  </div>  
+  <% end %>  
 </div><br><br>
