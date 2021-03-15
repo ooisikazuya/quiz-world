@@ -1,7 +1,7 @@
 class QuizzesController < ApplicationController
   def show
     @quiz = Quiz.find(params[:id])
-    @questions = @quiz.questions.page(params[:page]).per(1)
+    @questions = @quiz.questions.order("RAND()").all.page(params[:page]).per(1)
   end
 
   def search

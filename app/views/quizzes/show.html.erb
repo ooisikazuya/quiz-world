@@ -9,13 +9,13 @@
         <h3 class="text-info">第<%= @questions.current_page %>問</h3>
         <div class="card border-info">
           <div class="card-body">
-            <h6><%= question.content %></h6>
+            <h6><%= simple_format(question.content, sanitize: true) %></h6>
           </div>
         </div><br>
-        <% question.answers.each do |answer| %>
+        <% question.answers.shuffle.each do |answer| %>
           <div class="row">
             <div class="col text-center"> 
-              <a class="btn btn-lg btn-outline-info btn-block"><%= answer.content %></a>
+              <a class="btn btn-lg btn-outline-info btn-block"><%= simple_format(answer.content, sanitize: true) %></a>
             </div>
           </div><br>   
         <% end %> 
@@ -41,3 +41,5 @@
     </div>
   </div>
 </div><br><br>
+<i class="far fa-circle fa-10x"></i>
+<i class="fas fa-times fa-10x"></i>
