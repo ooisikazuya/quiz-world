@@ -41,3 +41,17 @@ width:  40px;
 height: 40px;
 object-fit: cover; 
 }
+body {
+  position: relative;
+}
+.fa-circle, .fa-times {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  opacity:0.6;
+}
