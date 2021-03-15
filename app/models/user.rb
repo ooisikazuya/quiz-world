@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :quizzes
   has_many :bulletin_boards
+  has_many :user_quizzes
 
   validates :nickname, presence: true
 

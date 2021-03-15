@@ -1,6 +1,7 @@
 class Quiz < ApplicationRecord
   belongs_to :user
   has_many :questions
+  has_many :user_quizzes
 
   enum status: [:before_release, :released, :deleted]
 
