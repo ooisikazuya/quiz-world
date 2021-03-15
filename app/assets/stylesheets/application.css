@@ -14,9 +14,15 @@
  *= require_self
  */
 
- .fa-circle{color: lightpink;}
- .fa-times{color: lightskyblue;}
- .fa-image{color: #17a2b8;}
+ .fa-circle{
+   color: lightpink;
+  }
+ .fa-times{
+   color: lightskyblue;
+  }
+ .fa-image{
+   color: #17a2b8;
+  }
  img{
   border-radius: 50%;
   width:  300px;
