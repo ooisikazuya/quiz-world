@@ -14,28 +14,28 @@
  *= require_self
  */
 
- .fa-circle{
+ .fa-circle {
    color: lightpink;
   }
- .fa-times{
+ .fa-times {
    color: lightskyblue;
   }
- .fa-image{
+ .fa-image {
    color: #17a2b8;
   }
- img{
+ img {
   border-radius: 50%;
   width:  300px;
   height: 300px;
   object-fit: cover;  
  }
- .user_icon{
+ .user_icon {
   border-radius: 50%;
   width:  60px;
   height: 60px;
   object-fit: cover; 
  }
- .icon{
+ .icon {
   border-radius: 50%;
   width:  40px;
   height: 40px;
