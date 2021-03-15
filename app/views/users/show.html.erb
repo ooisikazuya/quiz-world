@@ -17,7 +17,7 @@
   <h3><%= @user.email %><h3>
 </div><br>
 <div class="container">
-  <h2 class="text-info">プロフィール画像<i class="fas fa-image fa-fw"></i></h2>
+  <h2 class="text-info">ユーザーアイコン<i class="fas fa-icons"></i></h2>
   <% if @user.icon? %>
     <p>
       <%= image_tag @user.icon.url %>
