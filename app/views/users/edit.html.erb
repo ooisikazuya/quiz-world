@@ -8,8 +8,24 @@
         <%= f.label :ニックネーム, class: "h2 text-info" %><br />
         <%= f.text_field :nickname, class:"form-control border-info", autofocus: true %> 
       </div>
+    </div><br><br>
+    <div class="row">      
+      <div class="col-12">
+        <%= f.label :プロフィール画像, class: "h2 text-info" %><i class="fas fa-image fa-fw fa-2x"></i><br />           
+        <label>
+          <h5 class="btn btn-warning">画像を選択</h5>           
+          <span style="display:none;">        
+            <%= f.file_field :icon, id: :user_icon %>
+          </span>
+        </lavel>       
+      </div>
     </div>
-  </div><br><br><br>
+    <% if @user.icon? %>
+      <%= image_tag @user.icon.url, id: :icon_prev, width: :'40%', height: :'40%' %>
+    <% else %>
+      <img id="icon_prev" src="/assets/default.png" width="30%" height="30%">
+    <% end %>
+  </div><br><br>
   <div class="container">
     <div class="row">
       <div class="col-7">

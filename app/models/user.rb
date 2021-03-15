@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :bulletin_boards
 
   validates :nickname, presence: true
+
+  mount_uploader :icon, IconUploader
 end

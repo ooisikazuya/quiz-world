@@ -1,4 +1,6 @@
 class BulletinBoardsController < ApplicationController
+  before_action :set_user, only: [:index, :new, :search]
+
   def index
     @bulletin_boards = BulletinBoard.search(params[:search]).order(created_at: :desc).page(params[:page]).per(10)
   end
@@ -25,5 +27,9 @@ class BulletinBoardsController < ApplicationController
 
   def bulletin_board_params
     params.require(:bulletin_board).permit(:message)
+  end
+
+  def set_user
+    @user = current_user
   end
 end

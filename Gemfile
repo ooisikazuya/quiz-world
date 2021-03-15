@@ -65,3 +65,5 @@ gem 'devise'
 gem 'rails-i18n'
 gem "jquery-rails"
 gem 'kaminari'
+gem 'carrierwave'
+gem 'mini_magick'
