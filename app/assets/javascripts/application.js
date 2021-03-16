@@ -183,9 +183,4 @@ document.addEventListener("turbolinks:load", function() {
   $("#user_icon").change(function(){
     readURL(this);
   });
-
-  $('.fa-circle').hide();
-  $('.fa-times').hide();
-  $('.question-commentary').hide();
-  $('.commentary-sentence').hide();
 });
