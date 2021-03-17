@@ -34,13 +34,13 @@
       <%= link_to "クイズ作成", new_my_quiz_path, class: "btn btn-lg btn-warning float-right" %>
     </div>
   </div><br>
-  <% unless @quizzes.present? %>
-    <h2 class="text-danger text-center">クイズを作成してください。</h2>
-  <% end %>
   <div class="row">      
     <div class="col-12">
       <div class="card border-info">
         <div class="card-body">
+          <% unless @quizzes.present? %>
+            <h2 class="text-danger text-center">クイズを作成してください。</h2>
+          <% end %>
           <% @quizzes.each do |quiz| %>
             <ul>
               <div class="row">      
