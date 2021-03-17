@@ -22,7 +22,9 @@
   </div><br>
 <% end %>
 <div class="container">
-  <%= page_entries_info @bulletin_boards %>
+  <div class="h5">
+    <%= page_entries_info @bulletin_boards %>
+  </div>
   <% @bulletin_boards.each do |bulletin_board|%>
     <div class="card border-primary">
       <div class="container">

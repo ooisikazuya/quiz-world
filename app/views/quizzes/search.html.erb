@@ -21,7 +21,9 @@
 <div class="container">
   <div class="card border-primary">
     <div class="card-body">
-      <%= page_entries_info @quizzes %>
+      <div class="h5">
+        <%= page_entries_info @quizzes %>
+      </div>
       <table class="table">
         <tbody>
           <% @quizzes.each do |quiz| %>
