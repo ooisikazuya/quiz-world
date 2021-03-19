@@ -2,10 +2,10 @@
   <h1 class="text-white text-center"><%= @quiz.title %></h1>
   <h4 class="text-white text-center">ジャンル：<%= @quiz.genre %></h4>
 </div><br>
-<div class="container">
-  <div class="card border-info">
-    <div class="card-body">
-      <% @questions.each do |question| %>
+<% @questions.each_with_index do |question, i| %>
+  <div class="container">
+    <div class="card border-info">
+      <div class="card-body">
         <h3 class="text-info">第<%= @questions.current_page %>問</h3>
         <div class="card border-info">
           <div class="card-body">
@@ -14,32 +14,48 @@
         </div><br>
         <% question.answers.shuffle.each do |answer| %>
           <div class="row">
-            <div class="col text-center"> 
-              <a class="btn btn-lg btn-outline-info btn-block"><%= simple_format(answer.content, sanitize: true) %></a>
+            <div class="col text-center">
+              <% if @answering_choices[i].answer_id %>
+                <a class="btn btn-lg btn-outline-info btn-block"><%= simple_format(answer.content, sanitize: true) %></a>
+              <% else %>
+                <%= button_to quiz_question_answer_path(@quiz, question, answer), method: :patch, class: "btn btn-lg btn-outline-info btn-block" do %>
+                  <%= simple_format(answer.content, sanitize: true) %>
+                <% end %>
+              <% end %>
             </div>
           </div><br>   
-        <% end %> 
-        <h3 class="text-info question-commentary">解説</h3>
-        <div class="card border-info commentary-sentence">
-          <div class="card-body">
-            <h6><%= question.commentary %></h6>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div><br>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="actions">
-        <%= link_to_next_page @questions, "次の問題へ", class: "btn btn-success float-right text-white" %>
-        <% if @questions.last_page? %>
-          <%= link_to "結果画面へ", result_quiz_path(@quiz), class: "btn btn-success float-right text-white" %>
         <% end %>
-      </div>       
+        <% if @answering_choices[i].answer_id %>
+          <% unless @answers[i].judgment %>
+            <h3 class="text-info question-commentary">正解は<%= @right_answers[i].content %>です。</h3>
+          <% end %>
+          <h3 class="text-info question-commentary">解説</h3>
+          <div class="card border-info commentary-sentence">
+            <div class="card-body">
+              <h6><%= question.commentary %></h6>
+            </div>
+          </div>
+          <% if @answers[i].judgment %>
+            <i class="far fa-circle fa-10x"></i>
+          <% else %>
+            <i class="fas fa-times fa-10x"></i>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
-</div><br><br>
-<i class="far fa-circle fa-10x"></i>
-<i class="fas fa-times fa-10x"></i>
+  </div><br>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="actions">
+          <% if @answering_choices[i].answer_id %>
+            <%= link_to_next_page @questions, "次の問題へ", class: "btn btn-success float-right text-white" %>
+            <% if @questions.last_page? %>
+              <%= link_to "結果画面へ", result_quiz_path(@quiz), class: "btn btn-success float-right text-white" %>
+            <% end %>
+          <% end %>
+        </div>       
+      </div>
+    </div>
+  </div><br><br>
+<% end %>

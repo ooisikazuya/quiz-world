@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     end
   end
   resources :quizzes, only: [:show] do
-    resources :questions, only: :destroy
+    resources :questions, only: [:destroy] do
+      resources :answers, only: [:update]
+    end
     get 'search', on: :collection
     get 'result', on: :member
   end

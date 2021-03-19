@@ -6,7 +6,7 @@
     <div class="card-body">
       <h2 class="text-info text-center"><%= @quiz.title %></h2>
       <h5 class="text-info text-center">ジャンル：<%= @quiz.genre %></h5><br><br>
-      <h1 class="text-info text-center"><%= @questions.count %>問中？問正解！</h1><br>
+      <h1 class="text-info text-center"><%= @questions.count %>問中<%= @true_answers.count %>問正解！</h1><br>
     </div>
   </div><br><br>
   <h3 class="text-warning text-center">このクイズが楽しかったと思った人は”いいね！”ボタンを押してね！</h3><br>
