@@ -12,13 +12,13 @@
             <h6><%= simple_format(question.content, sanitize: true) %></h6>
           </div>
         </div><br>
-        <% question.answers.shuffle.each do |answer| %>
+        <% @question_answers.each do |answer| %>
           <div class="row">
             <div class="col text-center">
               <% if @answering_choices[i].answer_id %>
                 <a class="btn btn-lg btn-outline-info btn-block"><%= simple_format(answer.content, sanitize: true) %></a>
               <% else %>
-                <%= button_to quiz_question_answer_path(@quiz, question, answer), method: :patch, class: "btn btn-lg btn-outline-info btn-block" do %>
+                <%= button_to quiz_question_answer_path(@quiz, question, answer), method: :patch, class: "btn btn-lg btn-outline-info btn-block text-dark" do %>
                   <%= simple_format(answer.content, sanitize: true) %>
                 <% end %>
               <% end %>

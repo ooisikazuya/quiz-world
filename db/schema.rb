@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_121818) do
+ActiveRecord::Schema.define(version: 2021_03_19_083302) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "question_id", null: false
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 2021_03_15_121818) do
     t.integer "status", default: 0, null: false
     t.index ["genre"], name: "index_quizzes_on_genre"
     t.index ["user_id"], name: "index_quizzes_on_user_id"
+  end
+
+  create_table "user_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_quiz_id", null: false
+    t.integer "question_id", null: false
+    t.integer "answer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_choices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

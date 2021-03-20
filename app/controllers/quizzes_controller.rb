@@ -10,7 +10,15 @@ class QuizzesController < ApplicationController
     end
     question_ids = @user_quiz.user_choices.pluck(:question_id)
     @questions = Question.where(id: question_ids).order("field(id, #{question_ids.join(',')})").page(params[:page]).per(1)
+    @all_questions = Question.where(id: question_ids).order("field(id, #{question_ids.join(',')})")
+    @all_questions.each do |question|
+      question.answers.order("RAND()").all.each do |answer|
+        @user_quiz.user_answers.create!(question: question, answer: answer) unless @user_quiz.user_answers
+      end
+    end
     @questions.each_with_index do |question, i|
+      question_answer_ids = @user_quiz.user_answers.pluck(:answer_id)
+      @question_answers = Answer.where(id: question_answer_ids, question_id: question).order("field(id, #{question_answer_ids.join(',')})")
       @answering_choices = question.user_choices.where(user_quiz: @user_quiz)
       answer_id = @answering_choices[i].answer_id
       @answers = question.answers.where(id: answer_id)
