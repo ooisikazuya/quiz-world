@@ -148,6 +148,7 @@ document.addEventListener("turbolinks:load", function() {
   });
 
   $('body').on("click", ".save", function() {
+    $('body').off('submit', 'form');
     $('.answers').each(function(i) {
       const answers = $(this).find('.answer');
       const judgments = $(answers).find('.judgment');
@@ -158,7 +159,6 @@ document.addEventListener("turbolinks:load", function() {
       $('body').on("submit", "form", function() { 
         if (count == - 1) {
           alert((i + 1) + '番目の問題に正解の選択肢がありません。');
-          $('body').off('submit', 'form');
           return false;
         } else if (count > - 1) {
           return true;
