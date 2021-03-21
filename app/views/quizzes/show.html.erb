@@ -28,6 +28,8 @@
         <% if @answering_choices[i].answer_id %>
           <% unless @answers[i].judgment %>
             <h3 class="text-info question-commentary">正解は<%= @right_answers[i].content %>です。</h3>
+          <% else %>
+            <h3 class="text-info question-commentary">正解です！</h3>
           <% end %>
           <h3 class="text-info question-commentary">解説</h3>
           <div class="card border-info commentary-sentence">
