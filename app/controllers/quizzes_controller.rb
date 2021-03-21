@@ -11,9 +11,11 @@ class QuizzesController < ApplicationController
     question_ids = @user_quiz.user_choices.pluck(:question_id)
     @questions = Question.where(id: question_ids).order("field(id, #{question_ids.join(',')})").page(params[:page]).per(1)
     @all_questions = Question.where(id: question_ids).order("field(id, #{question_ids.join(',')})")
-    @all_questions.each do |question|
-      question.answers.order("RAND()").all.each do |answer|
-        @user_quiz.user_answers.create!(question: question, answer: answer) unless @user_quiz.user_answers
+    unless @user_quiz.user_answers.present?
+      @all_questions.each do |question|
+        question.answers.order("RAND()").all.each do |answer|
+          @user_quiz.user_answers.create!(question: question, answer: answer)
+        end
       end
     end
     @questions.each_with_index do |question, i|
@@ -28,6 +30,8 @@ class QuizzesController < ApplicationController
 
   def search
     @quizzes = Quiz.released.search(params[:search]).page(params[:page]).per(10).order(created_at: :desc)
+    user_quiz_ids = UserQuiz.where(user: current_user, status: 0).pluck(:quiz_id)
+    @user_quizzes = Quiz.where(id: user_quiz_ids)
   end
 
   def result

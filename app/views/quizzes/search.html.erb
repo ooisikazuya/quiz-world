@@ -1,6 +1,33 @@
 <div class="container">
   <h1 class="bg-warning text-white text-center">クイズに解答する</h1>
 </div><br>
+<% if @user_quizzes.present? %>
+  <div class="container">
+    <h2 class="text-info">挑戦中のクイズ</h2>
+    <div class="card border-danger">
+      <div class="card-body">
+        <table class="table">
+          <tbody>
+            <% @user_quizzes.each do |quiz| %>
+              <tr>
+                <td>
+                  <h3 class="h3"><%= quiz.title %><h3>
+                  <h6>ジャンル：<%= quiz.genre %></h6>
+                </td>
+                <td>
+                  <h6>いいね数</h6>
+                </td>
+                <td>
+                  <%= link_to "挑戦する", quiz_path(quiz), class: "btn btn-lg btn-success" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>  
+        </table>
+      </div>
+    </div>
+  </div><br>
+<% end %>
 <%= form_tag(search_quizzes_path, method: :get) do %>
   <div class="container">
     <div class="row">
