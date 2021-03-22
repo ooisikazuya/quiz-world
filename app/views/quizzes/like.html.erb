@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="bg-warning text-white text-center">クイズに解答する</h1>
+</div><br>
+<div class="container">
+  <h2 class="text-info">あなたが”いいね！”したクイズ一覧</h2>
+</div><br>
+<div class="container">
+  <div class="card border-primary">
+    <div class="card-body">
+      <table class="table">
+        <tbody>
+          <% @quizzes.each do |quiz| %>
+            <tr>
+              <td>
+                <h3 class="h3"><%= quiz.title %><h3>
+                <h6>ジャンル：<%= quiz.genre %></h6>
+              </td>
+              <td>
+                <h6>いいね数 <%= quiz.likes.count %></h6>
+              </td>
+              <td>
+                <%= link_to "挑戦する", quiz_path(quiz), class: "btn btn-lg btn-success" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>  
+      </table>
+    </div>
+  </div>
+</div><br><br>

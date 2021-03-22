@@ -43,5 +43,11 @@ class QuizzesController < ApplicationController
     @user_answers = @user_choices.pluck(:answer_id)
     @answers = Answer.where(id: @user_answers)
     @true_answers = @answers.where(judgment: true)
+    @likes = current_user.likes.where(quiz_id: @quiz)
+  end
+
+  def like
+    @likes = current_user.likes.pluck(:quiz_id)
+    @quizzes = Quiz.where(id: @likes)
   end
 end

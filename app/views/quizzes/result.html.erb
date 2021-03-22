@@ -9,12 +9,16 @@
       <h1 class="text-info text-center"><%= @questions.count %>問中<%= @true_answers.count %>問正解！</h1><br>
     </div>
   </div><br><br>
-  <h3 class="text-warning text-center">このクイズが楽しかったと思った人は”いいね！”ボタンを押してね！</h3><br>
-  <div class="row">
-    <div class="col-7">
-      <a class="btn btn-lg btn-info text-white float-right">いいね！</a>
-    </div>
-  </div><br><br><br>
+  <% unless @likes.present? %>
+    <h3 class="text-warning text-center">このクイズが楽しかったと思った人は”いいね！”ボタンを押してね！</h3><br>
+    <div class="row">
+      <div class="col-7">
+        <%= link_to "いいね！", quiz_likes_path(@quiz), method: :post, class: "btn btn-lg btn-info text-white float-right" %>
+      </div>
+    </div><br><br><br>
+  <% else %>
+    <h3 class="text-warning text-center">あなたはこのクイズに”いいね！”しています。</h3><br><br><br>
+  <% end %>
   <div class="row">
     <div class="col-6">
       <%= link_to "もう１度解く", quiz_path(@quiz), class: "btn btn-success text-white float-right" %>

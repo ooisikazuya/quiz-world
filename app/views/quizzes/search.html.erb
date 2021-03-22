@@ -1,4 +1,11 @@
 <div class="container">
+  <% if flash[:notice] %>
+    <h2 class="flash bg-primary text-white text-center">
+      <%= flash[:notice] %>
+    </h2>
+  <% end %>
+</div>
+<div class="container">
   <h1 class="bg-warning text-white text-center">クイズに解答する</h1>
 </div><br>
 <% if @user_quizzes.present? %>
@@ -15,7 +22,7 @@
                   <h6>ジャンル：<%= quiz.genre %></h6>
                 </td>
                 <td>
-                  <h6>いいね数</h6>
+                  <h6>いいね数 <%= quiz.likes.count %></h6>
                 </td>
                 <td>
                   <%= link_to "挑戦する", quiz_path(quiz), class: "btn btn-lg btn-success" %>
@@ -33,6 +40,9 @@
     <div class="row">
       <div class="col-6"> 
         <h2 class="text-info">ジャンル検索</h2>
+      </div>
+      <div class="col-6"> 
+        <%= link_to "あなたが”いいね！”したクイズ一覧", like_quizzes_path, class: "float-right" %>
       </div>
     </div>
     <div class="row">
@@ -60,7 +70,7 @@
                 <h6>ジャンル：<%= quiz.genre %></h6>
               </td>
               <td>
-                <h6>いいね数</h6>
+                <h6>いいね数 <%= quiz.likes.count %></h6>
               </td>
               <td>
                 <%= link_to "挑戦する", quiz_path(quiz), class: "btn btn-lg btn-success" %>

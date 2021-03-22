@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :bulletin_boards
   has_many :user_quizzes
   has_many :quizzes
+  has_many :likes
 
   validates :nickname, presence: true
 

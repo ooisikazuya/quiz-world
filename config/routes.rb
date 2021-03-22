@@ -20,10 +20,14 @@ Rails.application.routes.draw do
     end
   end
   resources :quizzes, only: [:show] do
+    resources :likes, only: [:create]
     resources :questions, only: [:destroy] do
       resources :answers, only: [:update]
     end
-    get 'search', on: :collection
+    collection do
+      get 'search'
+      get 'like'
+    end
     get 'result', on: :member
   end
   root 'top#index'
