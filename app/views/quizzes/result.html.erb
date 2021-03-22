@@ -21,7 +21,7 @@
   <% end %>
   <div class="row">
     <div class="col-6">
-      <%= link_to "もう１度解く", quiz_path(@quiz), class: "btn btn-success text-white float-right" %>
+      <%= link_to "もう１度解く", start_quiz_path(@quiz), method: 'post', class: "btn btn-success text-white float-right" %>
     </div>
     <div class="col-6">
       <%= link_to "クイズ検索へ", search_quizzes_path, class: "btn btn-success text-white" %>

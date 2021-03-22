@@ -28,7 +28,10 @@ Rails.application.routes.draw do
       get 'search'
       get 'like'
     end
-    get 'result', on: :member
+    member do
+      get 'result'
+      post 'start'
+    end
   end
   root 'top#index'
 end

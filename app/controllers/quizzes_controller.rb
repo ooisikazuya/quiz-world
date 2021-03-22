@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
-  def show
+  def start
     @quiz = Quiz.find(params[:id])
     @user_quiz = @quiz.user_quizzes.answering.find_or_initialize_by(user: current_user)
     if @user_quiz.new_record?
@@ -8,6 +8,13 @@ class QuizzesController < ApplicationController
         @user_quiz.user_choices.create!(question: question)
       end
     end
+    redirect_to quiz_path(@quiz)
+  end
+
+  def show
+    @quiz = Quiz.find(params[:id])
+    @user_quiz = @quiz.user_quizzes.where(user: current_user).last
+    return redirect_to search_quizzes_path unless @user_quiz
     question_ids = @user_quiz.user_choices.pluck(:question_id)
     @questions = Question.where(id: question_ids).order("field(id, #{question_ids.join(',')})").page(params[:page]).per(1)
     @all_questions = Question.where(id: question_ids).order("field(id, #{question_ids.join(',')})")
@@ -37,8 +44,11 @@ class QuizzesController < ApplicationController
   def result
     @quiz = Quiz.find(params[:id])
     @questions = @quiz.questions
-    @user_quiz = @quiz.user_quizzes.answering.find_by(user: current_user)
-    @user_quiz.finished!
+    if (@user_quiz = @quiz.user_quizzes.where(user: current_user).last).present?
+      @user_quiz.finished! if @user_quiz.answering?
+    else
+      return redirect_to search_quizzes_path
+    end
     @user_choices = UserChoice.where(user_quiz_id: @user_quiz, question_id: @questions)
     @user_answers = @user_choices.pluck(:answer_id)
     @answers = Answer.where(id: @user_answers)
