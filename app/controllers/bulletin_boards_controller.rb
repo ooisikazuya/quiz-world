@@ -1,5 +1,5 @@
 class BulletinBoardsController < ApplicationController
-  before_action :set_user, only: [:index, :new, :search]
+  before_action :set_user, only: [:index, :new, :create, :search]
 
   def index
     @bulletin_boards = BulletinBoard.search(params[:search]).order(created_at: :desc).page(params[:page]).per(10)
