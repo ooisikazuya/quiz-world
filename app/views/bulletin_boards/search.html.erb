@@ -33,8 +33,8 @@
             <%= simple_format(bulletin_board.message, sanitize: true) %>
           </div>
           <div class="col">
-            <% if @user.icon? %>
-              <%= image_tag @user.icon.url, id: :icon_prev, class: "icon float-right" %>
+            <% if bulletin_board.user.icon? %>
+              <%= image_tag bulletin_board.user.icon.url, id: :icon_prev, class: "icon float-right" %>
             <% else %>
               <img id="icon_prev" src="/assets/default.png" class="icon float-right">
             <% end %>
