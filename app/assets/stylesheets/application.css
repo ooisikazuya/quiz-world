@@ -21,7 +21,7 @@
   color: lightskyblue;
 }
 .fa-icons {
-  color: #17a2b8;
+  color: #28a745;
 }
 img {
 border-radius: 50%;
@@ -54,4 +54,10 @@ body {
   margin:0;
   padding:0;
   opacity:0.6;
+}
+nav {
+  background-color: orange;
+}
+body {
+  background-color: ivory;
 }

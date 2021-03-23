@@ -2,29 +2,29 @@
   <h1 class="text-white text-center">結果</h1>
 </div><br>
 <div class="container">
-  <div class="card border-info">
+  <div class="card border-success">
     <div class="card-body">
-      <h2 class="text-info text-center"><%= @quiz.title %></h2>
-      <h5 class="text-info text-center">ジャンル：<%= @quiz.genre %></h5><br><br>
-      <h1 class="text-info text-center"><%= @questions.count %>問中<%= @true_answers.count %>問正解！</h1><br>
+      <h2 class="text-success text-center"><%= @quiz.title %></h2>
+      <h5 class="text-success text-center">ジャンル：<%= @quiz.genre %></h5><br><br>
+      <h1 class="text-success text-center"><%= @questions.count %>問中<%= @true_answers.count %>問正解！</h1><br>
     </div>
   </div><br><br>
   <% unless @likes.present? %>
-    <h3 class="text-warning text-center">このクイズが楽しかったと思った人は”いいね！”ボタンを押してね！</h3><br>
+    <h3 class="text-success text-center">このクイズが楽しかったと思った人は<strong>”いいね！”</strong>ボタンを押してね！</h3><br>
     <div class="row">
       <div class="col-7">
-        <%= link_to "いいね！", quiz_likes_path(@quiz), method: :post, class: "btn btn-lg btn-info text-white float-right" %>
+        <%= link_to "いいね！", quiz_likes_path(@quiz), method: :post, class: "btn btn-lg btn-warning text-white float-right" %>
       </div>
     </div><br><br><br>
   <% else %>
-    <h3 class="text-warning text-center">あなたはこのクイズに”いいね！”しています。</h3><br><br><br>
+    <h3 class="text-success text-center">あなたはこのクイズに<strong>”いいね！”</strong>しています。</h3><br><br><br>
   <% end %>
   <div class="row">
     <div class="col-6">
-      <%= link_to "もう１度解く", start_quiz_path(@quiz), method: 'post', class: "btn btn-success text-white float-right" %>
+      <%= link_to "もう１度解く", start_quiz_path(@quiz), method: 'post', class: "btn btn-info text-white float-right" %>
     </div>
     <div class="col-6">
-      <%= link_to "クイズ検索へ", search_quizzes_path, class: "btn btn-success text-white" %>
+      <%= link_to "クイズ検索へ", search_quizzes_path, class: "btn btn-info text-white" %>
     </div>
   </div>
 </div><br><br><br>

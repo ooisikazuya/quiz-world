@@ -6,7 +6,7 @@
   </div>  
 <% end %>
 <div class="container">
-  <h1 class="bg-success text-white text-center">掲示板に記入する</h1>
+  <h1 class="bg-warning text-white text-center">掲示板に記入する</h1>
 </div><br>
 <div class="container">
   <div class="row">
@@ -26,12 +26,12 @@
   <%= form_for(@bulletin_board) do |f| %>
     <div class="row">
       <div class="col">
-        <%= f.text_area :message, class: "form-control border-primary", rows: 10 %>
+        <%= f.text_area :message, class: "form-control border-success", rows: 10 %>
       </div>
     </div><br><br>
     <div class="row">
       <div class="col-7">
-        <%= f.submit "掲示板に載せる", class: "btn btn-warning btn-lg float-right" %>
+        <%= f.submit "掲示板に載せる", class: "btn btn-primary btn-lg float-right" %>
       </div>
     </div>
   <% end %>  

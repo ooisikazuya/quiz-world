@@ -1,7 +1,7 @@
 <% i = 0 %>
 <div class="container">
   <% if flash[:notice] %>
-    <h2 class="flash bg-primary text-white text-center">
+    <h2 class="flash bg-success text-white text-center">
       <%= flash[:notice] %>
     </h2>
   <% end %>
@@ -11,18 +11,18 @@
 </div><br>
 <%= form_tag(my_quiz_path(@quiz), method: :patch) do %>
   <div class="container">
-    <h5 class=" text-info">クイズ名</h5>
+    <h5 class=" text-success">クイズ名</h5>
     <div class="row">      
       <div class="col-7">
-        <%= text_field_tag "title", @quiz.title, class: "form-control border-info", required: true %>
+        <%= text_field_tag "title", @quiz.title, class: "form-control border-success", required: true %>
       </div>
     </div>
   </div><br>
   <div class="container">
-    <h5 class=" text-info">ジャンル</h5>
+    <h5 class=" text-success">ジャンル</h5>
     <div class="row">      
       <div class="col-5">      
-        <%= text_field_tag "genre", @quiz.genre, class: "form-control border-info", required: true %>
+        <%= text_field_tag "genre", @quiz.genre, class: "form-control border-success", required: true %>
       </div>
     </div>
   </div><br>
@@ -37,12 +37,12 @@
         <div id="question_<%= i %>" class="question">
           <div class="row">      
             <div class="col-12">
-              <div class="card border-info">
+              <div class="card border-success">
                 <div class="card-body">
                   <%= hidden_field_tag "question_id_#{i}", question.id %>
                   <div class="row">
                     <div class="col-3">
-                      <h3 class="text-info">問題文</h3>
+                      <h3 class="text-success">問題文</h3>
                     </div>
                     <div class="col-9">
                       <%= link_to "問題の削除", quiz_question_path(@quiz, question), method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: "btn btn-danger float-right text-white delete_question" %>
@@ -50,12 +50,12 @@
                   </div>
                   <div class="row">
                     <div class="col">
-                      <%= text_area_tag "question_content_#{i}", "#{question.content}", class: "form-control border-info q_content", rows: 3, placeholder: "問題文を作成してください。", required: true %>
+                      <%= text_area_tag "question_content_#{i}", "#{question.content}", class: "form-control border-success q_content", rows: 3, placeholder: "問題文を作成してください。", required: true %>
                     </div>
                   </div><br>
                   <div class="row">
                     <div class="col">
-                      <h3 class="text-info">選択肢</h3>
+                      <h3 class="text-success">選択肢</h3>
                     </div>
                   </div>
                   <div id="answer_<%= i %>" class="answers">
@@ -63,14 +63,14 @@
                       <div id="<%= "answer_#{i}_#{j}" %>" class="answer">
                         <div class="row">
                           <div class="col-2">
-                            <%= select_tag "judgment_#{i}_#{j}", options_for_select([['×', false], ['○', true]], selected: "#{answer.judgment}"), class: "form-control border-info judgment" %>
+                            <%= select_tag "judgment_#{i}_#{j}", options_for_select([['×', false], ['○', true]], selected: "#{answer.judgment}"), class: "form-control border-success judgment" %>
                           </div>
                           <div class="col-8">      
-                            <%= text_area_tag "answer_content_#{i}_#{j}", "#{answer.content}", class: "form-control border-info content", rows: 1, placeholder: "選択肢を作成してください。", required: true %>
+                            <%= text_area_tag "answer_content_#{i}_#{j}", "#{answer.content}", class: "form-control border-success content", rows: 1, placeholder: "選択肢を作成してください。", required: true %>
                           </div>
                           <% if j >= 2 %>
                             <div class="col-2">
-                              <a id="<%= "delete_answer_#{i}_#{j}" %>" class="btn btn-danger delete_answer">🗑</a>
+                              <a id="<%= "delete_answer_#{i}_#{j}" %>" class="btn btn-danger delete_answer far fa-trash-alt fa-lg text-white"></a>
                             </div>
                           <% end %>
                         </div><br>
@@ -84,12 +84,12 @@
                   </div>
                   <div class="row">
                     <div class="col-3">
-                      <h3 class="text-info">解説</h3>
+                      <h3 class="text-success">解説</h3>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col">
-                      <%= text_area_tag "commentary_#{i}", "#{question.commentary}", class: "form-control border-info commentary", rows: 3, placeholder: "解説文を作成してください。", required: true %>
+                      <%= text_area_tag "commentary_#{i}", "#{question.commentary}", class: "form-control border-success commentary", rows: 3, placeholder: "解説文を作成してください。", required: true %>
                     </div>
                   </div><br>
                 </div>
@@ -103,11 +103,11 @@
       <div id="question_<%= i %>" class="question">
         <div class="row">      
           <div class="col-12">
-            <div class="card border-info">
+            <div class="card border-success">
               <div class="card-body">
                 <div class="row">
                   <div class="col-3">
-                    <h3 class="text-info">問題文</h3>
+                    <h3 class="text-success">問題文</h3>
                   </div>
                   <div class="col-9">
                     <a id="delete_question_<%= i %>" class="btn btn-danger float-right text-white delete_question">問題の削除</a>
@@ -115,12 +115,12 @@
                 </div>
                 <div class="row">
                   <div class="col">
-                    <%= text_area_tag "question_content_#{i}", "", class: "form-control border-info q_content", rows: 3, placeholder: "問題文を作成してください。", required: true %>
+                    <%= text_area_tag "question_content_#{i}", "", class: "form-control border-success q_content", rows: 3, placeholder: "問題文を作成してください。", required: true %>
                   </div>
                 </div><br>
                 <div class="row">
                   <div class="col">
-                    <h3 class="text-info">選択肢</h3>
+                    <h3 class="text-success">選択肢</h3>
                   </div>
                 </div>
                 <div id="answer_<%= i %>" class="answers">
@@ -128,14 +128,14 @@
                     <div id="<%= "answer_#{i}_#{j}" %>" class="answer">
                       <div class="row">
                         <div class="col-2">
-                          <%= select_tag "judgment_#{i}_#{j}", options_for_select([['×', false], ['○', true]]), class: "form-control border-info judgment" %>
+                          <%= select_tag "judgment_#{i}_#{j}", options_for_select([['×', false], ['○', true]]), class: "form-control border-success judgment" %>
                         </div>
                         <div class="col-8">      
-                          <%= text_area_tag "answer_content_#{i}_#{j}", "", class: "form-control border-info content", rows: 1, placeholder: "選択肢を作成してください。", required: true %>
+                          <%= text_area_tag "answer_content_#{i}_#{j}", "", class: "form-control border-success content", rows: 1, placeholder: "選択肢を作成してください。", required: true %>
                         </div>
                         <% if j >= 2 %>
                           <div class="col-2">
-                            <a id="<%= "delete_answer_#{i}_#{j}" %>" class="btn btn-danger delete_answer">🗑</a>
+                            <a id="<%= "delete_answer_#{i}_#{j}" %>" class="btn btn-danger delete_answer far fa-trash-alt fa-lg text-white"></a>
                           </div>
                         <% end %>
                       </div><br>
@@ -149,12 +149,12 @@
                 </div>
                 <div class="row">
                   <div class="col-3">
-                    <h3 class="text-info">解説</h3>
+                    <h3 class="text-success">解説</h3>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col">
-                    <%= text_area_tag "commentary_#{i}", "", class: "form-control border-info commentary", rows: 3, placeholder: "解説文を作成してください。", required: true %>
+                    <%= text_area_tag "commentary_#{i}", "", class: "form-control border-success commentary", rows: 3, placeholder: "解説文を作成してください。", required: true %>
                   </div>
                 </div><br>
               </div>

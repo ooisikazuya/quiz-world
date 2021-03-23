@@ -1,56 +1,62 @@
 <% unless user_signed_in? %>
   <br>
   <div class="container">
-    <div class="row"> 
-      <div class="col">  
+    <div class="row">
+      <div class="col-3">
+        <i class="far fa-circle fa-10x"></i>
+      </div> 
+      <div class="col-6">  
         <h1 class="text-center text-warning">クイズを</h1><br>
         <h1 class="text-center text-warning">作って解いて</h1><br>
         <h1 class="text-center text-warning">楽しもう！</h1><br>
       </div>
+      <div class="col-3">
+        <i class="fas fa-times fa-10x"></i>
+      </div>
     </div>
   </div><br><br>
   <div class="container">
-    <p class="text-center text-info">このアプリでは、クイズを作成したり、みんなが作成したクイズを解いたりして楽しめます。</p><br>
-    <p class="text-center text-info">自分が作成したクイズを掲示板で宣伝し、みんなにチャレンジしてもらいましょう。</p><br>
+    <p class="text-center text-success">このアプリでは、クイズを作成したり、みんなが作成したクイズを解いたりして楽しめます。</p><br>
+    <p class="text-center text-success">自分が作成したクイズを掲示板で宣伝し、みんなにチャレンジしてもらいましょう。</p><br>
   </div><br>
   <div class="container">
     <div class="row">          
       <div class="col-6">
-        <%= link_to "会員登録", new_user_registration_path, class: 'btn btn-success btn-lg float-right' %>
+        <%= link_to "会員登録", new_user_registration_path, class: 'btn btn-info btn-lg float-right' %>
       </div>
       <div class="col-6">
-        <%= link_to "ログイン", new_user_session_path, class: 'btn btn-success btn-lg' %>
+        <%= link_to "ログイン", new_user_session_path, class: 'btn btn-info btn-lg' %>
       </div>  
     </div>
   </div><br><br>
 <% else %>
   <div class="container">
     <% if flash[:notice] %>
-      <h2 class="flash bg-primary text-white text-center">
+      <h2 class="flash bg-success text-white text-center">
         <%= flash[:notice] %>
       </h2>
     <% end %>
   </div>
   <div class="container">
-    <h2 class="text-info">ようこそ、<%= "#{@user.nickname}" %>さん！</h2>
+    <h2 class="text-success">ようこそ、<%= "#{@user.nickname}" %>さん！</h2>
   </div><br>
   <div class="container">
     <div class="row"> 
       <div class="col-6">
-        <div class="card">
-          <h5 class="card-header bg-danger text-white">クイズを作成・編集する</h5>
+        <div class="card border-success">
+          <h5 class="card-header bg-success text-white">クイズを作成・編集する</h5>
           <div class="card-body">
             <h5 class="card-text">みんなに楽しんでもらえるようなクイズを考え、作成しましょう。勉強になるクイズや自分の趣味などなんでもOKです。</h5><br>
-            <%= link_to "作成・編集", my_quizzes_path, class: 'btn btn-success text-white float-right' %>
+            <%= link_to "作成・編集", my_quizzes_path, class: 'btn btn-info text-white float-right' %>
           </div>
         </div>
       </div>
       <div class="col-6">
-        <div class="card">
-          <h5 class="card-header bg-primary text-white">クイズに解答する</h5>
+        <div class="card border-success">
+          <h5 class="card-header bg-success text-white">クイズに解答する</h5>
           <div class="card-body">
             <h5 class="card-text">みんなが作ったクイズにチャレンジしてみましょう。楽しかったクイズには”いいね！”をしましょう。</h5><br>
-            <%= link_to "解答する", search_quizzes_path, class: 'btn btn-success text-white float-right' %>
+            <%= link_to "解答する", search_quizzes_path, class: 'btn btn-info text-white float-right' %>
           </div>
         </div>
       </div>
@@ -59,11 +65,11 @@
   <div class="container">
     <div class="row"> 
       <div class="col-12">
-        <div class="card">
-          <h5 class="card-header bg-warning text-white">クイズ掲示板</h5>
+        <div class="card border-success">
+          <h5 class="card-header bg-success text-white">クイズ掲示板</h5>
           <div class="card-body">
               <h5 class="card-text">色んなクイズをした感想を書いたり、自分が作ったクイズを宣伝する掲示板です。</h5><br> 
-            <%= link_to "掲示板を見る", bulletin_boards_path, class: 'btn btn-warning float-right' %>
+            <%= link_to "掲示板を見る", bulletin_boards_path, class: 'btn btn-info float-right' %>
           </div>
         </div>
       </div>

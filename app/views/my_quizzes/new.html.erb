@@ -3,22 +3,22 @@
 </div><br>
 <%= form_for @quiz, url: my_quizzes_path do |f| %>
   <div class="container">
-    <h3 class=" text-info">クイズ名</h3><br>
+    <h3 class=" text-success">クイズ名</h3>
     <div class="row">      
       <div class="col-7">
         <div class="form-group">
-          <%= f.text_field :title, class: "form-control border-info", required: true %>
+          <%= f.text_field :title, class: "form-control border-success", placeholder: "（例）山手線クイズ", required: true %>
         </div>
       </div>
     </div>
   </div><br><br>
   <div class="container">
-    <h3 class=" text-info">ジャンル</h3>
+    <h3 class=" text-success">ジャンル</h3>
     <h6 class=" text-success">＊クイズ検索の際に使用されます。</h6>
     <div class="row">      
       <div class="col-7">      
         <div class="form-group">
-          <%= f.text_field :genre, class: "form-control border-info", required: true %>
+          <%= f.text_field :genre, class: "form-control border-success", placeholder: "（例）鉄道　山手線　東京", required: true %>
         </div>
       </div>
     </div>

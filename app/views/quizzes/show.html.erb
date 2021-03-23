@@ -4,10 +4,10 @@
 </div><br>
 <% @questions.each_with_index do |question, i| %>
   <div class="container">
-    <div class="card border-info">
+    <div class="card border-success">
       <div class="card-body">
-        <h3 class="text-info">第<%= @questions.current_page %>問</h3>
-        <div class="card border-info">
+        <h3 class="text-success">第<%= @questions.current_page %>問</h3>
+        <div class="card border-success">
           <div class="card-body">
             <h6><%= simple_format(question.content, sanitize: true) %></h6>
           </div>
@@ -16,9 +16,9 @@
           <div class="row">
             <div class="col text-center">
               <% if @answering_choices[i].answer_id %>
-                <a class="btn btn-lg btn-outline-info btn-block"><%= simple_format(answer.content, sanitize: true) %></a>
+                <a class="btn btn-lg btn-outline-success btn-block"><%= simple_format(answer.content, sanitize: true) %></a>
               <% else %>
-                <%= button_to quiz_question_answer_path(@quiz, question, answer), method: :patch, class: "btn btn-lg btn-outline-info btn-block text-dark" do %>
+                <%= button_to quiz_question_answer_path(@quiz, question, answer), method: :patch, class: "btn btn-lg btn-outline-success btn-block text-dark" do %>
                   <%= simple_format(answer.content, sanitize: true) %>
                 <% end %>
               <% end %>
@@ -27,12 +27,12 @@
         <% end %>
         <% if @answering_choices[i].answer_id %>
           <% unless @answers[i].judgment %>
-            <h3 class="text-info text-center question-commentary">正解は「 <%= @right_answers[i].content %> 」です。</h3>
+            <h3 class="text-success text-center question-commentary">正解は「 <%= @right_answers[i].content %> 」です。</h3>
           <% else %>
-            <h3 class="text-info text-center question-commentary">正解です！</h3>
+            <h3 class="text-success text-center question-commentary">正解です！</h3>
           <% end %>
-          <h3 class="text-info question-commentary">解説</h3>
-          <div class="card border-info commentary-sentence">
+          <h3 class="text-success question-commentary">解説</h3>
+          <div class="card border-success commentary-sentence">
             <div class="card-body">
               <h6><%= question.commentary %></h6>
             </div>
@@ -51,9 +51,9 @@
       <div class="col">
         <div class="actions">
           <% if @answering_choices[i].answer_id %>
-            <%= link_to_next_page @questions, "次の問題へ", class: "btn btn-success float-right text-white" %>
+            <%= link_to_next_page @questions, "次の問題へ", class: "btn btn-info float-right text-white" %>
             <% if @questions.last_page? %>
-              <%= link_to "結果画面へ", result_quiz_path(@quiz), class: "btn btn-success float-right text-white" %>
+              <%= link_to "結果画面へ", result_quiz_path(@quiz), class: "btn btn-info float-right text-white" %>
             <% end %>
           <% end %>
         </div>       

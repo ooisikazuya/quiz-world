@@ -2,10 +2,10 @@
   <h1 class="bg-warning text-white text-center">クイズに解答する</h1>
 </div><br>
 <div class="container">
-  <h2 class="text-info">あなたが”いいね！”したクイズ一覧</h2>
+  <h2 class="text-success">あなたが”いいね！”したクイズ一覧</h2>
 </div><br>
 <div class="container">
-  <div class="card border-primary">
+  <div class="card border-success">
     <div class="card-body">
       <table class="table">
         <tbody>
@@ -19,7 +19,7 @@
                 <h6>いいね数 <%= quiz.likes.count %></h6>
               </td>
               <td>
-                <%= link_to "挑戦する", quiz_path(quiz), class: "btn btn-lg btn-success" %>
+                <%= link_to "挑戦する", start_quiz_path(quiz), method: 'post', class: "btn btn-lg btn-info" %>
               </td>
             </tr>
           <% end %>
