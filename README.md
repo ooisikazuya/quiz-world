@@ -1,24 +1,88 @@
-# README
+## アプリ名
+### QUIZ-WORLD
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+QUIZ-WORLDはクイズを気軽に楽しめるアプリです。
 
-Things you may want to cover:
+あなたの好きなことに関する問題を作成し、他のユーザーにクイズを解いてもらうことができます。
 
-* Ruby version
+また、あなたが作成したクイズを宣伝したり、他のユーザーが作成したクイズを解いた感想などを書き込める掲示板もあります。
 
-* System dependencies
+クイズを作りたい人、色んなクイズに挑戦したい人は是非使ってみてください。
 
-* Configuration
+## アプリを作るきっかけ
+テレビのクイズ番組が好きでよく見ているのですが、クイズに答えるだけではなく作ることもしてみたいと思ったので、その両方ができるアプリを作ってみました。
 
-* Database creation
+さらに、クイズにいいね機能を付けてどのクイズがどのくらいお気に入りされているかを可視化できたらおもしろいなと思い実装しました。
 
-* Database initialization
+ユーザーが多ければ多いほどより楽しいアプリになるなと思っています。
 
-* How to run the test suite
+## ターゲット
+- クイズを作って色んな人に解いてもらいたい人
+- 様々なジャンルのクイズに挑戦したい人
 
-* Services (job queues, cache servers, search engines, etc.)
+## 使い方
+- **クイズを作成・編集する**
 
-* Deployment instructions
+![スクリーンショット 2021-03-25 11 49 24](https://user-images.githubusercontent.com/74053238/112425555-9f69c380-8d79-11eb-82cd-2a77d997dcdf.png)
 
-* ...
+![スクリーンショット 2021-03-25 11 54 30](https://user-images.githubusercontent.com/74053238/112425725-e657b900-8d79-11eb-817e-c98d0b98e4cf.png)
+
+選択クイズを作成・編集することができます。
+
+選択肢の数を問題毎に２〜５択に設定できるので、○×クイズを作ってみてもいいかもしれません。
+
+- **クイズに解答する**
+
+![スクリーンショット 2021-03-25 12 04 13](https://user-images.githubusercontent.com/74053238/112425815-130bd080-8d7a-11eb-9310-d10544fca6b0.png)
+
+![スクリーンショット 2021-03-25 12 05 47](https://user-images.githubusercontent.com/74053238/112425868-2f0f7200-8d7a-11eb-9562-113147cf3558.png)
+
+![スクリーンショット 2021-03-25 12 08 28](https://user-images.githubusercontent.com/74053238/112429712-5f5a0f00-8d80-11eb-9051-d17c03d37b78.png)
+
+ユーザーが作ったクイズに挑戦することができます。
+
+ジャンル検索でやりたいクイズを探してチャレンジしましょう。
+
+あなたがいいねしたクイズをまとめたページもあるので、お気に入りのクイズを何度もやって楽しみましょう。
+
+- **クイズ掲示板**
+
+![スクリーンショット 2021-03-25 14 09 13](https://user-images.githubusercontent.com/74053238/112429809-87e20900-8d80-11eb-9422-cda691ad37b9.png)
+
+あなたが作ったクイズを宣伝したり、色んなクイズをした感想を書くことができます。
+
+キーワード検索で特定のワードが書かれてある掲示板を探して楽しみましょう。
+
+- **会員情報**
+
+![スクリーンショット 2021-03-25 14 14 20](https://user-images.githubusercontent.com/74053238/112429868-a6e09b00-8d80-11eb-840c-474b19d15659.png)
+
+会員情報の変更、アイコン画像の選択をすることができます。
+
+アイコン画像はクイズ掲示板に表示されます。
+
+## 使用技術
+### フロントエンド
+- HTML/CSS
+- JavaScript/jQuery
+- devise
+- carrierwave
+- mini_magick
+- kaminari
+
+### サーバーサイド
+- Ruby 2.6.2
+- Ruby on Rails 5.2.4.5
+
+### デプロイ
+- heroku 7.47.12
+
+  #### URL
+  
+  
+
+  #### テストユーザー情報
+  - ニックネーム  kazu　
+  - メールアドレス  ttttt@ttttt
+  - パスワード    
