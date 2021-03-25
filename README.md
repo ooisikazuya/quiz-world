@@ -76,7 +76,7 @@ QUIZ-WORLDはクイズを気軽に楽しめるアプリです。
 - Ruby on Rails 5.2.4.5
 
 ### デプロイ
-- heroku 7.47.12
+- heroku 7.50.0
 
   #### URL
   
