@@ -20,6 +20,7 @@
                 <td>
                   <h3 class="h3"><%= quiz.title %><h3>
                   <h6>ジャンル：<%= quiz.genre %></h6>
+                  <h6>作成ユーザー：<%= quiz.user.nickname %></h6>
                 </td>
                 <td>
                   <h6>いいね数 <%= quiz.likes.count %></h6>
@@ -68,6 +69,7 @@
               <td>
                 <h3 class="h3"><%= quiz.title %><h3>
                 <h6>ジャンル：<%= quiz.genre %></h6>
+                <h6>作成ユーザー：<%= quiz.user.nickname %></h6>
               </td>
               <td>
                 <h6>いいね数 <%= quiz.likes.count %></h6>

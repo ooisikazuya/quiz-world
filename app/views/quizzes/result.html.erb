@@ -5,7 +5,8 @@
   <div class="card border-success">
     <div class="card-body">
       <h2 class="text-success text-center"><%= @quiz.title %></h2>
-      <h5 class="text-success text-center">ジャンル：<%= @quiz.genre %></h5><br><br>
+      <h5 class="text-success text-center">ジャンル：<%= @quiz.genre %></h5>
+      <h5 class="text-success text-center">作成ユーザー：<%= @quiz.user.nickname %></h5><br><br>
       <h1 class="text-success text-center"><%= @questions.count %>問中<%= @true_answers.count %>問正解！</h1><br>
     </div>
   </div><br><br>
