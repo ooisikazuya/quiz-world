@@ -16,7 +16,7 @@ class QuizzesController < ApplicationController
     @user_quiz = @quiz.user_quizzes.where(user: current_user).last
     return redirect_to search_quizzes_path unless @user_quiz
     question_ids = @user_quiz.user_choices.pluck(:question_id)
-    @all_questions = Question.where(id: question_ids).order(order_query(question_ids))
+    @all_questions = Question.where(id: question_ids).order("field(id, #{question_ids.join(',')})")
     @questions = @all_questions.page(params[:page]).per(1)
     unless @user_quiz.user_answers.present?
       @all_questions.each do |question|
@@ -27,7 +27,7 @@ class QuizzesController < ApplicationController
     end
     @questions.each_with_index do |question, i|
       question_answer_ids = @user_quiz.user_answers.pluck(:answer_id)
-      @question_answers = Answer.where(id: question_answer_ids, question_id: question).order(order_query(question_answer_ids))
+      @question_answers = Answer.where(id: question_answer_ids, question_id: question).order("field(id, #{question_answer_ids.join(',')})")
       @answering_choices = question.user_choices.where(user_quiz: @user_quiz)
       answer_id = @answering_choices[i].answer_id
       @answers = question.answers.where(id: answer_id)
@@ -59,13 +59,5 @@ class QuizzesController < ApplicationController
   def like
     @likes = current_user.likes.pluck(:quiz_id)
     @quizzes = Quiz.where(id: @likes)
-  end
-
-  private
-
-  def order_query(column_values)
-    column_values.each.with_index(1).inject('CASE id ') do |order_query, (column_value, index)|
-      order_query << "WHEN '#{column_value}' THEN '#{index}' "
-    end << 'END'
   end
 end
