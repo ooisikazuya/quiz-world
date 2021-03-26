@@ -61,9 +61,11 @@ class QuizzesController < ApplicationController
     @quizzes = Quiz.where(id: @likes)
   end
 
+  private
+
   def order_query(column_values)
     column_values.each.with_index(1).inject('CASE id ') do |order_query, (column_value, index)|
       order_query << "WHEN #{column_value} THEN #{index} "
-    end << 'end'
+    end << 'END'
   end
 end
