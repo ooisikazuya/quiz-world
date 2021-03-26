@@ -16,8 +16,8 @@ class QuizzesController < ApplicationController
     @user_quiz = @quiz.user_quizzes.where(user: current_user).last
     return redirect_to search_quizzes_path unless @user_quiz
     question_ids = @user_quiz.user_choices.pluck(:question_id)
-    @questions = Question.where(id: question_ids).order("field(id, #{question_ids.join(',')})").page(params[:page]).per(1)
     @all_questions = Question.where(id: question_ids).order("field(id, #{question_ids.join(',')})")
+    @questions = @all_questions.page(params[:page]).per(1)
     unless @user_quiz.user_answers.present?
       @all_questions.each do |question|
         question.answers.order("RAND()").all.each do |answer|
