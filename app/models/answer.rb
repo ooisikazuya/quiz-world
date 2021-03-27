@@ -1,4 +1,5 @@
 class Answer < ApplicationRecord
+  extend OrderAsSpecified
   has_many :user_choices
   has_many :user_answers
   belongs_to :question, dependent: :delete
