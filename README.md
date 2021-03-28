@@ -24,7 +24,7 @@ QUIZ-WORLDはクイズを気軽に楽しめるアプリです。
 ## 使い方
 - **クイズを作成・編集する**
 
-![スクリーンショット 2021-03-25 11 49 24](https://user-images.githubusercontent.com/74053238/112425555-9f69c380-8d79-11eb-82cd-2a77d997dcdf.png)
+![スクリーンショット 2021-03-28 14 17 29](https://user-images.githubusercontent.com/74053238/112743251-9161b000-8fd0-11eb-9a4f-0ad7bb0adece.png)
 
 ![スクリーンショット 2021-03-25 11 54 30](https://user-images.githubusercontent.com/74053238/112425725-e657b900-8d79-11eb-817e-c98d0b98e4cf.png)
 
