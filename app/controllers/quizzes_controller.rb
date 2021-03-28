@@ -4,7 +4,7 @@ class QuizzesController < ApplicationController
     @user_quiz = @quiz.user_quizzes.answering.find_or_initialize_by(user: current_user)
     if @user_quiz.new_record?
       @user_quiz.save!
-      @quiz.questions.order("RAND()").all.each do |question|
+      @quiz.questions.shuffle.each do |question|
         @user_quiz.user_choices.create!(question: question)
       end
     end
@@ -20,7 +20,7 @@ class QuizzesController < ApplicationController
     @questions = @all_questions.page(params[:page]).per(1)
     unless @user_quiz.user_answers.present?
       @all_questions.each do |question|
-        question.answers.order("RAND()").all.each do |answer|
+        question.answers.shuffle.each do |answer|
           @user_quiz.user_answers.create!(question: question, answer: answer)
         end
       end
