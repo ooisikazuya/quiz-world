@@ -15,7 +15,7 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.find(params[:id])
     @user_quiz = @quiz.user_quizzes.where(user: current_user).last
     return redirect_to search_quizzes_path unless @user_quiz
-    question_ids = @user_quiz.user_choices.pluck(:question_id)
+    question_ids = @user_quiz.user_choices.order(:id).pluck(:question_id)
     @all_questions = Question.where(id: question_ids).order_as_specified(id: question_ids)
     @questions = @all_questions.page(params[:page]).per(1)
     unless @user_quiz.user_answers.present?
