@@ -24,6 +24,6 @@ ja:
         display_entries:
           zero: "見つかりませんでした。"
           one: ""
-          other: "<strong>1-%{count}</strong>/%{count}件"
+          other: "%{count}件見つかりました。"
       more_pages:
-        display_entries: "<strong>%{first}-%{last}</strong>/%{total}件"
+        display_entries: "%{total}件見つかりました。"
