@@ -58,6 +58,6 @@ class QuizzesController < ApplicationController
 
   def like
     @likes = current_user.likes.pluck(:quiz_id)
-    @quizzes = Quiz.where(id: @likes)
+    @quizzes = Quiz.where(id: @likes, status: 1)
   end
 end
