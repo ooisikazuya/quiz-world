@@ -7,7 +7,7 @@
 <div class="container">
   <div class="card border-success">
     <div class="card-body">
-      <% if current_user.likes.present? %>
+      <% if @quizzes.present? %>
         <table class="table">
           <tbody>
             <% @quizzes.each do |quiz| %>
