@@ -1,5 +1,33 @@
 {
   "name": "quiz-world",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/webpacker": "5.2.1",
+    "vue": "^2.6.12",
+    "vue-loader": "^15.9.6",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.2"
+  },
+  "description": "## 概要 QUIZ-WORLDはクイズを気軽に楽しめるアプリです。",
+  "version": "1.0.0",
+  "main": "babel.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ooisikazuya/quiz-world.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ooisikazuya/quiz-world/issues"
+  },
+  "homepage": "https://github.com/ooisikazuya/quiz-world#readme"
 }

@@ -1,21 +1,50 @@
-version: '3'
+version: "3"
 services:
   db:
-    image: mysql:5.7
-    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: root
     ports:
       - "3306:3306"
-
-  web:
-    build: .
-    command: rails s -p 3000 -b '0.0.0.0'
+    command: --default-authentication-plugin=mysql_native_password
     volumes:
-      - .:/app_name
+      - mysql-data:/var/lib/mysql
+  app: &app_base
+    build:
+      context: .
+    volumes:
+      - .:/var/src/app
     ports:
       - "3000:3000"
     links:
       - db
+    working_dir: /var/src/app
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    cap_add:
+      - ALL # Add all privilege
+    container_name: app
+    tty: true
     stdin_open: true
+    privileged: true
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100k"
+    dns:
+      - 8.8.8.8
+  webpack-dev-server:
+    build: .
+    command: /bin/sh -c "bin/webpack-dev-server --hot --inline"
+    ports:
+      - "3035:3035"
+    environment:
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+    volumes:
+      - .:/var/src/app
+    tty: true
+    stdin_open: true
+    depends_on:
+      - app
+volumes:
+  mysql-data:
+    driver: local
