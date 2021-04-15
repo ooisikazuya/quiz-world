@@ -48,7 +48,7 @@ QUIZ-WORLDはクイズを気軽に楽しめるアプリです。
 
 - **クイズ掲示板**
 
-![スクリーンショット 2021-03-25 14 09 13](https://user-images.githubusercontent.com/74053238/112429809-87e20900-8d80-11eb-9422-cda691ad37b9.png)
+![スクリーンショット 2021-04-15 14 09 25](https://user-images.githubusercontent.com/74053238/114817091-5d6df380-9df4-11eb-9173-36dac3a89c7b.png)
 
 あなたが作ったクイズを宣伝したり、色んなクイズをした感想を書くことができます。
 
