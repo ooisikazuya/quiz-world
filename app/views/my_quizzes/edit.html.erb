@@ -12,7 +12,7 @@
 </div><br>
 <%= form_tag(my_quiz_path(@quiz), method: :patch) do %>
   <div class="container">
-    <h5 class=" text-success">クイズ名</h5>
+    <h5 class="text-success">クイズ名</h5>
     <div class="row">      
       <div class="col-7">
         <%= text_field_tag "title", @quiz.title, class: "form-control border-success", required: true %>
@@ -20,7 +20,7 @@
     </div>
   </div><br>
   <div class="container">
-    <h5 class=" text-success">ジャンル</h5>
+    <h5 class="text-success">ジャンル</h5>
     <div class="row">      
       <div class="col-5">      
         <%= text_field_tag "genre", @quiz.genre, class: "form-control border-success", required: true %>
@@ -28,9 +28,9 @@
     </div>
   </div><br>
   <div class="container">
-    <h6 class=" text-danger">＊問題は最大で１００問作成できます。</h6>
-    <h6 class=" text-danger">＊選択肢は問題毎に２〜５択に調節できます。</h6>
-    <h6 class=" text-danger">＊正解の選択肢を複数に設定することができません。</h6>
+    <h6 class="text-danger">＊問題は最大で１００問作成できます。</h6>
+    <h6 class="text-danger">＊選択肢は問題毎に２〜５択に調節できます。</h6>
+    <h6 class="text-danger">＊正解の選択肢を複数に設定することができません。</h6>
   </div><br>
   <div class="container" id="quiz_container">
     <% if @quiz.questions.present? %>
