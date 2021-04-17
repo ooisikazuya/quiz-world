@@ -5,16 +5,20 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
-import Vue from 'vue'
-import App from '../app.vue'
+import Vue from 'vue/dist/vue.esm'
 
-document.addEventListener('DOMContentLoaded', () => {
-  const app = new Vue({
-    render: h => h(App)
-  }).$mount()
-  document.body.appendChild(app.$el)
-
-  console.log(app)
+document.addEventListener('turbolinks:load', () => {
+  var vue = new Vue({
+    el: '#discription',
+    data: {
+      discriptions: [
+        {discription: '” クイズ作成 ”ボタンをクリックしてクイズタイトル・ジャンルを作成してください。' },
+        {discription: '” 編集 ”ボタンをクリックして問題・選択肢・解説を作成してください。' },
+        {discription: '” 公開 ”ボタンをクリックしてみんなにクイズを解いてもらいましょう。ただし、編集はできなくなるので問題の見直しをきちんとしておきましょう。' },
+        {discription: 'クイズの公開後表示される” 削除 ”ボタンをクリックするとそのクイズを公開場所から削除することができます。ただし、もう１度公開することができないため、みんなにもう解いてほしくないクイズに対して行ってください。' }
+      ]
+    }
+  })
 })
 
 

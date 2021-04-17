@@ -14,11 +14,10 @@
     <div class="col-12">
       <div class="card border-success">
         <div class="card-body">
-          <ol>
-            <li class=" text-success"><strong>” クイズ作成 ”</strong>ボタンをクリックしてクイズタイトル・ジャンルを作成してください。</li>
-            <li class=" text-success"><strong>” 編集 ”</strong>ボタンをクリックして問題・選択肢・解説を作成してください。</li>
-            <li class=" text-success"><strong>” 公開 ”</strong>ボタンをクリックしてみんなにクイズを解いてもらいましょう。ただし、編集はできなくなるので問題の見直しをきちんとしておきましょう。</li>
-            <li class=" text-success">クイズの公開後表示される<strong>” 削除 ”</strong>ボタンをクリックするとそのクイズを公開場所から削除することができます。ただし、もう１度公開することができないため、みんなにもう解いてほしくないクイズに対して行ってください。</li>
+          <ol id="discription">
+            <li class="text-success" v-for="discription in discriptions" :key="discription.discription">
+              {{ discription.discription }}
+            </li>
           </ol>
         </div>
       </div>
