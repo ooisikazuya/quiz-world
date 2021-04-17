@@ -13,7 +13,7 @@
     </div>
     <div class="row">
       <div class="col-6">
-        <%= text_field_tag :search, "#{params[:search]}", class: "form-control border-success" %>
+        <%= text_field_tag :search, "#{params[:search]}", class: "form-control border-success", placeholder: "キーワードを入力" %>
       </div>
       <div class="col-6">
         <%= submit_tag "検索", message: nil, class: "btn btn-success" %> 
