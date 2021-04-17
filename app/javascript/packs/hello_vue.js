@@ -30,6 +30,17 @@ document.addEventListener('turbolinks:load', () => {
       }
     }
   })
+
+  var vue3 = new Vue({
+    el: '#important-points',
+    data: {
+      points: [
+        { point: '＊問題は最大で１００問作成できます。' },
+        { point: '＊選択肢は問題毎に２〜５択に調節できます。' },
+        { point: '＊正解の選択肢を複数に設定することができません。' }
+      ]
+    }
+  })
 })
 
 

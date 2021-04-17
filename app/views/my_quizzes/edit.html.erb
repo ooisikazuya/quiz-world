@@ -27,10 +27,10 @@
       </div>
     </div>
   </div><br>
-  <div class="container">
-    <h6 class="text-danger">＊問題は最大で１００問作成できます。</h6>
-    <h6 class="text-danger">＊選択肢は問題毎に２〜５択に調節できます。</h6>
-    <h6 class="text-danger">＊正解の選択肢を複数に設定することができません。</h6>
+  <div class="container" id="important-points">
+    <h6 class="text-danger" v-for="point in points" :key="point.point">
+      {{ point.point }}
+    </h6>
   </div><br>
   <div class="container" id="quiz_container">
     <% if @quiz.questions.present? %>
