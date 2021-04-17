@@ -6,8 +6,8 @@
     </h2>
   <% end %>
 </div>
-<div class="container">
-  <h1 class="bg-warning text-white text-center">クイズ編集</h1>
+<div class="container" id="page-title">
+  <h1 :style="styles">クイズ編集</h1>
   <%= link_to "MYクイズリストへ", my_quizzes_path, class: "btn btn-info text-white" %>
 </div><br>
 <%= form_tag(my_quiz_path(@quiz), method: :patch) do %>

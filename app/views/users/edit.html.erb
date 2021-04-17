@@ -1,5 +1,5 @@
-<div class="container">
-  <h1 class="bg-warning text-white text-center">会員情報の変更</h1>
+<div class="container" id="page-title">
+  <h1 :style="styles">会員情報の変更</h1>
 </div><br> 
 <%= form_for(@user, url: user_path, method: :patch) do |f| %>
   <div class="container">

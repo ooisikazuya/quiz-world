@@ -8,7 +8,7 @@
 import Vue from 'vue/dist/vue.esm'
 
 document.addEventListener('turbolinks:load', () => {
-  var vue = new Vue({
+  var vue1 = new Vue({
     el: '#discription',
     data: {
       discriptions: [
@@ -17,6 +17,17 @@ document.addEventListener('turbolinks:load', () => {
         { discription: '” 公開 ”ボタンをクリックしてみんなにクイズを解いてもらいましょう。ただし、編集はできなくなるので問題の見直しをきちんとしておきましょう。' },
         { discription: 'クイズの公開後表示される” 削除 ”ボタンをクリックするとそのクイズを公開場所から削除することができます。ただし、もう１度公開することができないため、みんなにもう解いてほしくないクイズに対して行ってください。' }
       ]
+    }
+  })
+
+  var vue2 = new Vue({
+    el: '#page-title',
+    data: {
+      styles: {
+        backgroundColor: '#ffc107',
+        color: 'white',
+        textAlign: 'center'
+      }
     }
   })
 })

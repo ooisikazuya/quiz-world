@@ -1,7 +1,9 @@
-<div class="container bg-warning">
-  <h1 class="text-white text-center"><%= @quiz.title %></h1>
-  <h5 class="text-white text-center">ジャンル：<%= @quiz.genre %></h5>
-  <h5 class="text-white text-center">作成ユーザー：<%= @quiz.user.nickname %></h5>
+<div class="container" id="page-title">
+  <div :style="styles">
+    <h1><%= @quiz.title %></h1>
+    <h5>ジャンル：<%= @quiz.genre %></h5>
+    <h5>作成ユーザー：<%= @quiz.user.nickname %></h5>
+  </div>
 </div><br>
 <% @questions.each_with_index do |question, i| %>
   <div class="container">

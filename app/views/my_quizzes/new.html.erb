@@ -1,5 +1,5 @@
-<div class="container">
-  <h1 class="bg-warning text-white text-center">クイズ作成</h1>
+<div class="container" id="page-title">
+  <h1 :style="styles">クイズ作成</h1>
 </div><br>
 <%= form_for @quiz, url: my_quizzes_path do |f| %>
   <div class="container">
