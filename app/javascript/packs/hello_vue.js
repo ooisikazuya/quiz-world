@@ -41,6 +41,13 @@ document.addEventListener('turbolinks:load', () => {
       ]
     }
   })
+
+  Vue.component('card', {
+    props: ['header', 'text', 'url', 'button'],
+    template: '<div class="card border-success"><h5 class="card-header bg-success text-white">{{ header }}</h5><div class="card-body"><h5 class="card-text">{{ text }}</h5><br><a :href="url" class="btn btn-info text-white float-right">{{ button }}</a><br></div></div>'
+  })
+
+  var vue4 = new Vue({ el: '#top-card' })
 })
 
 
