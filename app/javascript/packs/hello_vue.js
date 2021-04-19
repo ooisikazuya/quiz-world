@@ -47,7 +47,17 @@ document.addEventListener('turbolinks:load', () => {
     template: '<div class="card border-success"><h5 class="card-header bg-success text-white">{{ header }}</h5><div class="card-body"><h5 class="card-text">{{ text }}</h5><br><a :href="url" class="btn btn-info text-white float-right">{{ button }}</a><br></div></div>'
   })
 
-  var vue4 = new Vue({ el: '#top-card' })
+  Vue.component('catch-copy', {
+    props: ['word'],
+    template: '<h1 class="text-center text-warning">{{ word }}</h1>'
+  })
+
+  Vue.component('introduction', {
+    props: ['sentence'],
+    template: '<p class="text-center text-success">{{ sentence }}</p>'
+  })
+
+  var vue4 = new Vue({ el: '#top' })
 })
 
 

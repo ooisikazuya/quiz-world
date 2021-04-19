@@ -1,24 +1,26 @@
 <% unless user_signed_in? %>
   <br>
-  <div class="container">
-    <div class="row">
-      <div class="col-3">
-        <i class="far fa-circle fa-10x"></i>
-      </div> 
-      <div class="col-6">  
-        <h1 class="text-center text-warning">クイズを</h1><br>
-        <h1 class="text-center text-warning">作って解いて</h1><br>
-        <h1 class="text-center text-warning">楽しもう！</h1><br>
+  <div id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <i class="far fa-circle fa-10x"></i>
+        </div> 
+        <div class="col-6">  
+          <catch-copy word="クイズを"></catch-copy><br>
+          <catch-copy word="作って解いて"></catch-copy><br>
+          <catch-copy word="楽しもう！"></catch-copy><br>
+        </div>
+        <div class="col-3">
+          <i class="fas fa-times fa-10x"></i>
+        </div>
       </div>
-      <div class="col-3">
-        <i class="fas fa-times fa-10x"></i>
-      </div>
-    </div>
-  </div><br><br>
-  <div class="container">
-    <p class="text-center text-success">このアプリでは、クイズを作成したり、みんなが作成したクイズを解いたりして楽しめます。</p><br>
-    <p class="text-center text-success">自分が作成したクイズを掲示板で宣伝し、みんなにチャレンジしてもらいましょう。</p><br>
-  </div><br>
+    </div><br><br>
+    <div class="container">
+      <introduction sentence="このアプリでは、クイズを作成したり、みんなが作成したクイズを解いたりして楽しめます。"></introduction><br>
+      <introduction sentence="自分が作成したクイズを掲示板で宣伝し、みんなにチャレンジしてもらいましょう。"></introduction><br>
+    </div><br>
+  </div>
   <div class="container">
     <div class="row">          
       <div class="col-6">
@@ -40,7 +42,7 @@
   <div class="container">
     <h2 class="text-success">ようこそ、<%= "#{@user.nickname}" %>さん！</h2>
   </div><br>
-  <div id="top-card">
+  <div id="top">
     <div class="container">
       <div class="row"> 
         <div class="col-6">
