@@ -6,8 +6,16 @@
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 import Vue from 'vue/dist/vue.esm'
+import Top from './top/top.vue'
 
 document.addEventListener('turbolinks:load', () => {
+  var vue = new Vue({
+    el: '#top',
+    components: {
+      'top': Top
+    }
+  })
+
   var vue1 = new Vue({
     el: '#discription',
     data: {
@@ -46,18 +54,6 @@ document.addEventListener('turbolinks:load', () => {
     props: ['header', 'text', 'url', 'button'],
     template: '<div class="card border-success"><h5 class="card-header bg-success text-white">{{ header }}</h5><div class="card-body"><h5 class="card-text">{{ text }}</h5><br><a :href="url" class="btn btn-info text-white float-right">{{ button }}</a><br></div></div>'
   })
-
-  Vue.component('catch-copy', {
-    props: ['word'],
-    template: '<h1 class="text-center text-warning">{{ word }}</h1>'
-  })
-
-  Vue.component('introduction', {
-    props: ['sentence'],
-    template: '<p class="text-center text-success">{{ sentence }}</p>'
-  })
-
-  var vue4 = new Vue({ el: '#top' })
 })
 
 
