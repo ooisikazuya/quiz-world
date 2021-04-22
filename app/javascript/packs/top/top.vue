@@ -33,6 +33,8 @@
     </div><br><br>
   </div>
 </template>
+
+
 <script>
   var ComponentA = {
     props: ['word'],
