@@ -1,26 +1,24 @@
 <template>  
   <div>
-    <div id="top-content">
-      <div class="container">
-        <div class="row">
-          <div class="col-3">
-            <i class="far fa-circle fa-10x"></i>
-          </div> 
-          <div class="col-6">  
-            <catch-copy word="クイズを"></catch-copy><br>
-            <catch-copy word="作って解いて"></catch-copy><br>
-            <catch-copy word="楽しもう！"></catch-copy><br>
-          </div>
-          <div class="col-3">
-            <i class="fas fa-times fa-10x"></i>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <i class="far fa-circle fa-10x"></i>
+        </div> 
+        <div class="col-6">  
+          <catch-copy word="クイズを"></catch-copy><br>
+          <catch-copy word="作って解いて"></catch-copy><br>
+          <catch-copy word="楽しもう！"></catch-copy><br>
         </div>
-      </div><br><br>
-      <div class="container">
-        <introduction sentence="このアプリでは、クイズを作成したり、みんなが作成したクイズを解いたりして楽しめます。"></introduction><br>
-        <introduction sentence="自分が作成したクイズを掲示板で宣伝し、みんなにチャレンジしてもらいましょう。"></introduction><br>
-      </div><br>
-    </div>
+        <div class="col-3">
+          <i class="fas fa-times fa-10x"></i>
+        </div>
+      </div>
+    </div><br><br>
+    <div class="container">
+      <introduction sentence="このアプリでは、クイズを作成したり、みんなが作成したクイズを解いたりして楽しめます。"></introduction><br>
+      <introduction sentence="自分が作成したクイズを掲示板で宣伝し、みんなにチャレンジしてもらいましょう。"></introduction><br>
+    </div><br>
     <div class="container">
       <div class="row">          
         <div class="col-6">
@@ -47,7 +45,6 @@
   }
 
   export default {
-    el: '#top-content',
     components: {
       'catch-copy': ComponentA,
       'introduction': ComponentB

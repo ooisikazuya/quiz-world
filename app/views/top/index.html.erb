@@ -11,29 +11,7 @@
       </h2>
     <% end %>
   </div>
-  <div class="container">
-    <h2 class="text-success">ようこそ、<%= "#{@user.nickname}" %>さん！</h2>
-  </div><br>
-  <div id="top">
-    <div class="container">
-      <div class="row"> 
-        <div class="col-6">
-          <card header="クイズを作成・編集する" text="みんなに楽しんでもらえるようなクイズを考え、作成しましょう。勉強になるクイズや自分の趣味などなんでもOKです。" url="/my_quizzes" button="作成・編集">
-          </card>
-        </div>
-        <div class="col-6">
-          <card header="クイズに解答する" text="みんなが作ったクイズにチャレンジしてみましょう。楽しかったクイズには”いいね！”をしましょう。" url="/quizzes/search" button="解答する">
-          </card>
-        </div>
-      </div>
-    </div><br>
-    <div class="container">
-      <div class="row"> 
-        <div class="col-12">
-          <card header="クイズ掲示板" text="色んなクイズをした感想を書いたり、自分が作ったクイズを宣伝する掲示板です。" url="/bulletin_boards" button="掲示板を見る">
-          </card>
-        </div>
-      </div> 
-    </div><br><br>
+  <div id="user-top">
+    <user-top></user-top>
   </div>
 <% end %>

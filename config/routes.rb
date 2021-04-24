@@ -33,5 +33,10 @@ Rails.application.routes.draw do
       post 'start'
     end
   end
+
   root 'top#index'
+
+  namespace :api, format: 'json' do
+    resources :top, only: [:index]
+  end
 end
