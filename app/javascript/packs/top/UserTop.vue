@@ -41,7 +41,6 @@
       }
     },
     mounted: function() {
-      var self = this
       axios.get('/api/top')
       .then(
         response => (this.user = response.data)
