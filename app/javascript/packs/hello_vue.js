@@ -8,6 +8,7 @@
 import Vue from 'vue/dist/vue.esm'
 import Top from './top/top.vue'
 import UserTop from './top/UserTop.vue'
+import MyQuizzes from './my_quizzes/MyQuizzes.vue'
 
 document.addEventListener('turbolinks:load', () => {
   var top = new Vue({
@@ -24,19 +25,7 @@ document.addEventListener('turbolinks:load', () => {
     }
   })
 
-  var vue1 = new Vue({
-    el: '#discription',
-    data: {
-      discriptions: [
-        { discription: '” クイズ作成 ”ボタンをクリックしてクイズタイトル・ジャンルを作成してください。' },
-        { discription: '” 編集 ”ボタンをクリックして問題・選択肢・解説を作成してください。' },
-        { discription: '” 公開 ”ボタンをクリックしてみんなにクイズを解いてもらいましょう。ただし、編集はできなくなるので問題の見直しをきちんとしておきましょう。' },
-        { discription: 'クイズの公開後表示される” 削除 ”ボタンをクリックするとそのクイズを公開場所から削除することができます。ただし、もう１度公開することができないため、みんなにもう解いてほしくないクイズに対して行ってください。' }
-      ]
-    }
-  })
-
-  var vue2 = new Vue({
+  var pageTitle = new Vue({
     el: '#page-title',
     data: {
       styles: {
@@ -47,7 +36,15 @@ document.addEventListener('turbolinks:load', () => {
     }
   })
 
-  var vue3 = new Vue({
+  var myQuizzes = new Vue({
+    el: '#my-quizzes',
+    components: {
+      'my-quizzes': MyQuizzes
+    }
+  })
+
+
+  var importantPoints = new Vue({
     el: '#important-points',
     data: {
       points: [

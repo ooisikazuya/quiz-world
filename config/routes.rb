@@ -38,5 +38,6 @@ Rails.application.routes.draw do
 
   namespace :api, format: 'json' do
     resources :top, only: [:index]
+    resources :my_quizzes, only: [:index]
   end
 end
