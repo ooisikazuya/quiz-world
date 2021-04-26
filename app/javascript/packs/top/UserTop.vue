@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <h2 class="text-success" v-for="user in user">ようこそ、{{ user.nickname }}さん！</h2>
+      <h2 class="text-success" v-for="user in user" :key="user.id">ようこそ、{{ user.nickname }}さん！</h2>
     </div><br>
     <div class="container">
       <div class="row"> 
