@@ -38,6 +38,11 @@ Rails.application.routes.draw do
 
   namespace :api, format: 'json' do
     resources :top, only: [:index]
-    resources :my_quizzes, only: [:index]
+    resources :my_quizzes, only: [:index, :new, :create, :edit, :update] do
+      member do
+        patch 'released'
+        patch 'deleted'
+      end
+    end
   end
 end
