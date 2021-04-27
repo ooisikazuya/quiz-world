@@ -19,7 +19,7 @@
     <div class="container">
       <div class="row">
         <div class="col-6 d-flex align-items-center">
-          <h2 class="text-success" v-if="quizzes.quizzes != ''">MYクイズリスト</h2>
+          <h2 class="text-success" v-if="quizzes != ''">MYクイズリスト</h2>
         </div>
         <div class="col-6">
           <a class="btn btn-lg btn-info float-right" href="/my_quizzes/new">クイズ作成</a> 
@@ -29,8 +29,8 @@
         <div class="col-12">
           <div class="card border-success">
             <div class="card-body">
-              <h2 class="text-danger text-center" v-if="quizzes.quizzes == ''">クイズを作成してください。</h2>
-              <ul v-for="quizzes in quizzes" :key="quizzes.quizzes">
+              <h2 class="text-danger text-center" v-if="quizzes == ''">クイズを作成してください。</h2>
+              <ul>
                 <div v-for="(quiz, index) in quizzes" :key="quiz.id">
                   <div class="row">      
                     <div class="col-8">

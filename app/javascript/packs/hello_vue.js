@@ -9,7 +9,6 @@ import Vue from 'vue/dist/vue.esm'
 import Top from './top/top.vue'
 import UserTop from './top/UserTop.vue'
 import MyQuizzes from './my_quizzes/MyQuizzes.vue'
-import EditMyQuiz from './my_quizzes/EditMyQuiz.vue'
 
 document.addEventListener('turbolinks:load', () => {
   var top = new Vue({
@@ -44,11 +43,14 @@ document.addEventListener('turbolinks:load', () => {
     }
   })
 
-
-  var　editMyQuiz = new Vue({
-    el: '#edit-my-quiz',
-    components: {
-      'edit-my-quiz': EditMyQuiz
+  var importantPoints = new Vue({
+    el: '#important-points',
+    data: {
+      points: [
+        { point: '＊問題は最大で１００問作成できます。' },
+        { point: '＊選択肢は問題毎に２〜５択に調節できます。' },
+        { point: '＊正解の選択肢を複数に設定することができません。' }
+      ]
     }
   })
 })

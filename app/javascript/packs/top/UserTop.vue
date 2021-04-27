@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <h2 class="text-success" v-for="user in user" :key="user.nickname">ようこそ、{{ user.nickname }}さん！</h2>
+      <h2 class="text-success" v-if="user.nickname">ようこそ、{{ user.nickname }}さん！</h2>
     </div><br>
     <div class="container">
       <div class="row"> 
@@ -37,7 +37,7 @@
   export default {
     data: function() {
       return {
-        user: null
+        user: ""
       }
     },
     mounted: function() {
