@@ -16,4 +16,11 @@ RSpec.describe "MyQuizzes", type: :request do
       expect(response.status).to eq 200
     end
   end
+
+  describe 'GET #new' do
+    it 'リクエストが成功すること' do
+      get '/my_quizzes/new'
+      expect(response.status).to eq 200
+    end
+  end
 end
