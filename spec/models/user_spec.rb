@@ -9,6 +9,19 @@ RSpec.describe User, type: :model do
       password: "password"
       )
 
-      expect(user).to be_valid
+    expect(user).to be_valid
   end
+
+  it "ニックネームがない場合、無効である" do
+    user = User.new(
+      nickname: nil,
+      email: "testman@example.com",
+      password: "password"
+      )
+
+    user.valid?
+
+    expect(user.errors[:nickname]).to include("が入力されていません。")
+  end
+
 end
