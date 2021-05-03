@@ -3,21 +3,13 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
 
   it "ニックネーム、メール、パスワードがある場合、有効である" do
-    user = User.new(
-      nickname: "testman",
-      email: "testman@example.com",
-      password: "password"
-      )
+    user = build(:user)
 
     expect(user).to be_valid
   end
 
   it "ニックネームがない場合、無効である" do
-    user = User.new(
-      nickname: nil,
-      email: "testman@example.com",
-      password: "password"
-      )
+    user = build(:user, nickname: nil)
 
     user.valid?
 
@@ -25,11 +17,7 @@ RSpec.describe User, type: :model do
   end
 
   it "メールアドレスがない場合、無効である" do
-    user = User.new(
-      nickname: "testman",
-      email: nil,
-      password: "password"
-      )
+    user = build(:user, email: nil)
 
     user.valid?
 
@@ -37,11 +25,7 @@ RSpec.describe User, type: :model do
   end
 
   it "パスワードがない場合、無効である" do
-    user = User.new(
-      nickname: "testman",
-      email: "testman@example.com",
-      password: nil
-      )
+    user = build(:user, password: nil)
 
     user.valid?
 
