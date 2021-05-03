@@ -4,6 +4,9 @@ class Quiz < ApplicationRecord
   has_many :likes
   belongs_to :user
 
+  validates :title, presence: true
+  validates :genre, presence: true
+
   enum status: [:before_release, :released, :deleted]
 
   def self.search(search)
