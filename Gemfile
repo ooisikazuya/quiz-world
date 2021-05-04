@@ -71,3 +71,4 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'order_as_specified'
 gem 'webpacker'
+gem "factory_bot_rails"
