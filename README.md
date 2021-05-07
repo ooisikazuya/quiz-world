@@ -24,9 +24,9 @@ QUIZ-WORLDはクイズを気軽に楽しめるアプリです。
 ## 使い方
 - **クイズを作成・編集する**
 
-![スクリーンショット 2021-03-28 14 17 29](https://user-images.githubusercontent.com/74053238/112743251-9161b000-8fd0-11eb-9a4f-0ad7bb0adece.png)
+![スクリーンショット 2021-05-07 14 32 53](https://user-images.githubusercontent.com/74053238/117404150-614ceb80-af44-11eb-8a26-79cd42d1e6cf.png)
 
-![スクリーンショット 2021-03-25 11 54 30](https://user-images.githubusercontent.com/74053238/112425725-e657b900-8d79-11eb-817e-c98d0b98e4cf.png)
+![スクリーンショット 2021-05-07 14 34 11](https://user-images.githubusercontent.com/74053238/117404272-9a855b80-af44-11eb-9746-87e07a0fb001.png)
 
 選択クイズを作成・編集することができます。
 
@@ -34,11 +34,11 @@ QUIZ-WORLDはクイズを気軽に楽しめるアプリです。
 
 - **クイズに挑戦する**
 
-![スクリーンショット 2021-03-25 12 04 13](https://user-images.githubusercontent.com/74053238/112425815-130bd080-8d7a-11eb-9310-d10544fca6b0.png)
+![スクリーンショット 2021-05-07 14 27 05](https://user-images.githubusercontent.com/74053238/117404334-bc7ede00-af44-11eb-90de-ab7ffd0cb7f3.png)
 
-![スクリーンショット 2021-03-25 12 05 47](https://user-images.githubusercontent.com/74053238/112425868-2f0f7200-8d7a-11eb-9562-113147cf3558.png)
+![スクリーンショット 2021-05-07 14 28 21](https://user-images.githubusercontent.com/74053238/117404406-db7d7000-af44-11eb-8b18-ef11605f2daf.png)
 
-![スクリーンショット 2021-03-25 12 08 28](https://user-images.githubusercontent.com/74053238/112429712-5f5a0f00-8d80-11eb-9051-d17c03d37b78.png)
+![スクリーンショット 2021-05-07 14 30 51](https://user-images.githubusercontent.com/74053238/117404496-fd76f280-af44-11eb-916b-25f8db638ca5.png)
 
 ユーザーが作ったクイズに挑戦することができます。
 
@@ -48,7 +48,7 @@ QUIZ-WORLDはクイズを気軽に楽しめるアプリです。
 
 - **クイズ掲示板**
 
-![スクリーンショット 2021-04-15 14 09 25](https://user-images.githubusercontent.com/74053238/114817091-5d6df380-9df4-11eb-9173-36dac3a89c7b.png)
+![スクリーンショット 2021-05-07 14 54 45](https://user-images.githubusercontent.com/74053238/117404573-1e3f4800-af45-11eb-9ceb-57a7d2952586.png)
 
 あなたが作ったクイズを宣伝したり、色んなクイズをした感想を書くことができます。
 
@@ -56,7 +56,7 @@ QUIZ-WORLDはクイズを気軽に楽しめるアプリです。
 
 - **会員情報**
 
-![スクリーンショット 2021-03-25 14 14 20](https://user-images.githubusercontent.com/74053238/112429868-a6e09b00-8d80-11eb-840c-474b19d15659.png)
+![スクリーンショット 2021-05-07 14 38 50](https://user-images.githubusercontent.com/74053238/117404633-3b741680-af45-11eb-836b-374625bc7450.png)
 
 会員情報の変更、アイコン画像の選択をすることができます。
 
