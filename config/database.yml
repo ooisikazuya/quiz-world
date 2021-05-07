@@ -17,6 +17,7 @@ development:
 test:
   <<: *default
   database: db/quiz-world_test
+  host: localhost
 
 production:
   <<: *default
