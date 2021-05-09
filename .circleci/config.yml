@@ -32,15 +32,20 @@ jobs:
           keys:
             - rails-demo-yarn-{{ checksum "yarn.lock" }}
             - rails-demo-yarn-
-#      - run:
-#          name: Yarnをinstall
-#          command: yarn install --cache-folder ~/.cache/yarn
+      - run:
+          name: "Update Node.js and npm"
+          command: |
+            curl -sSL "https://nodejs.org/dist/v10.17.0/node-v10.17.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v10.17.0-linux-x64/bin/node
+            curl https://www.npmjs.com/install.sh | sudo bash
+      - run:
+          name: Yarnをinstall
+          command: yarn install --cache-folder ~/.cache/yarn
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
       - run:
           name: Database setup
-          command: bin/rails db:create db:schema:load --trace
+          command: bin/rails db:create db:migrate
       - run: bundle exec bin/webpack
       - run:
           name: execute rspec
