@@ -1,11 +1,5 @@
 <% i = 0 %>
-<div class="container">
-  <% if flash[:notice] %>
-    <h2 class="flash bg-success text-white text-center">
-      <%= flash[:notice] %>
-    </h2>
-  <% end %>
-</div>
+<%= render file: "layouts/flash.html.erb" %>
 <div class="container" id="page-title">
   <h1 :style="styles">クイズ編集</h1>
   <%= link_to "MYクイズリストへ", my_quizzes_path, class: "btn btn-info text-white" %>

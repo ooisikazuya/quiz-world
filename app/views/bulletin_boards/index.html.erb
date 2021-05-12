@@ -1,8 +1,2 @@
-<div class="container">
-  <% if flash[:notice] %>
-    <h2 class="flash bg-success text-white text-center">
-      <%= flash[:notice] %>
-    </h2>
-  <% end %>
-</div>
+<%= render file: "layouts/flash.html.erb" %>
 <%= render file: "bulletin_boards/search.html.erb" %>
