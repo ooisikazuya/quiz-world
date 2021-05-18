@@ -83,6 +83,6 @@ QUIZ-WORLDはクイズを気軽に楽しめるアプリです。
   https://polar-citadel-76171.herokuapp.com
 
   #### テストユーザー情報
-  - ニックネーム  kazu　
-  - メールアドレス  ttttt@ttttt
-  - パスワード  xyzxyz    
+  - ニックネーム・・・kazu　
+  - メールアドレス・・・ttttt@ttttt
+  - パスワード・・・xyzxyz    
