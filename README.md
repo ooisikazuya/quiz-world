@@ -64,8 +64,8 @@ QUIZ-WORLDはクイズを気軽に楽しめるアプリです。
 
 ## 使用技術
 ### フロントエンド
-- HTML/CSS
-- JavaScript/jQuery
+- HTML / CSS
+- JavaScript / jQuery
 - devise
 - carrierwave
 - mini_magick
