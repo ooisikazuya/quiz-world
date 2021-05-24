@@ -68,7 +68,7 @@ RSpec.describe Quiz, type: :model do
     context 'searchがnilでない場合' do
       let(:search) { 'アニメ' }
 
-      it 'genreにsearchの文字を含むreleasedのQuizをすべて返す' do
+      it 'genreにsearchの文字が含まれているreleasedのQuizをすべて返す' do
         expect(subject.map(&:id)).to match [quiz_1.id, quiz_2.id]
       end
     end
