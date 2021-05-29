@@ -1,7 +1,7 @@
 <template>  
   <div>
     <div class="container">
-      <h5 class="text-center bg-warning">テストユーザー情報➡︎（ニックネーム）kazu（メールアドレス）ttttt@ttttt（パスワード）xyzxyz</h5>
+      <h5 class="text-center bg-warning">テストユーザー情報 ➡︎（ニックネーム）kazu（メールアドレス）ttttt@ttttt（パスワード）xyzxyz</h5>
       <div class="row">
         <div class="col-3">
           <i class="far fa-circle fa-10x"></i>
