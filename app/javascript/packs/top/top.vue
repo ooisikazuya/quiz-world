@@ -23,7 +23,7 @@
     <div class="container">
       <div class="row">
         <div class="col-7">
-          <h2 class="text-success float-right">まずは会員登録をしよう！➡︎</h2>
+          <h2 class="text-success float-right">まずは会員登録をしよう！<i class="fas fa-arrow-right faa-horizontal animated"></i></h2>
         </div>        
         <div class="col-5">
           <a class="btn btn-info btn-lg" href="/users/sign_up">会員登録</a>
