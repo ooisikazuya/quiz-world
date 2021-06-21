@@ -19,7 +19,7 @@
     <div class="container">
       <div class="row">
         <div class="col-7 d-flex align-items-center">
-          <h3 class="text-success">クイズを作成したい方はこちらへ！➡︎</h3>
+          <h3 class="text-success">クイズを作成したい方はこちらへ！<i class="fas fa-arrow-right faa-horizontal animated"></i></h3>
         </div> 
         <div class="col-5">
           <a href="/my_quizzes" class="btn btn-info btn-lg text-white">クイズの作成</a>
@@ -27,7 +27,7 @@
       </div><br><br>
       <div class="row">
         <div class="col-8 d-flex align-items-center">
-          <h3 class="text-success">作ったクイズの宣伝、またはクイズを解いた感想を掲示板に書き込んでみましょう！➡︎</h3>
+          <h3 class="text-success">作ったクイズの宣伝、またはクイズを解いた感想を掲示板に書き込んでみましょう！<i class="fas fa-arrow-right faa-horizontal animated"></i></h3>
         </div> 
         <div class="col-4">
           <a href="/bulletin_boards" class="btn btn-info btn-lg text-white">クイズ掲示板</a>
