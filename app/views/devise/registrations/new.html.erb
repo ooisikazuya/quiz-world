@@ -10,7 +10,7 @@
       <div class="col-5">
         <div class="field">
           <%= f.label :ニックネーム, class: "text-success" %><br />
-          <%= f.text_field :nickname, class:"form-control border-success", autofocus: true %>
+          <%= f.text_field :nickname, class: "form-control border-success", autofocus: true %>
         </div>
       </div>
     </div>
@@ -20,7 +20,7 @@
       <div class="col-5">
         <div class="field">
           <%= f.label :メールアドレス, class: "text-success" %><br />
-          <%= f.email_field :email, class:"form-control border-success", autocomplete: "email" %>
+          <%= f.email_field :email, class: "form-control border-success", autocomplete: "email" %>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
           <% if @minimum_password_length %>
             <lavel>（ <%= @minimum_password_length %>文字以上 ）</lavel>
           <% end %><br />
-          <%= f.password_field :password, class:"form-control border-success", autocomplete: "new-password" %>
+          <%= f.password_field :password, class: "form-control border-success", autocomplete: "new-password" %>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@
       <div class="col-7"> 
         <div class="field">
           <%= f.label :もう1度パスワードを入力してください, class: "text-success" %><br />
-          <%= f.password_field :password_confirmation, class:"form-control border-success", autocomplete: "new-password" %>
+          <%= f.password_field :password_confirmation, class: "form-control border-success", autocomplete: "new-password" %>
         </div>
       </div>
     </div>
