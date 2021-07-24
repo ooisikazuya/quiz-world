@@ -49,7 +49,7 @@
                     <div class="col-4 d-flex align-items-center" v-if="quiz.status === 'deleted'">
                       <h4 class=" text-success">削除済み</h4>
                     </div>
-                  </div><br>
+                  </div><hr>
                 </div>
               </ul>
             </div>
